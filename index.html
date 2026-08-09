@@ -68,11 +68,10 @@
       radial-gradient(ellipse 700px 320px at 12% -10%, rgba(169,120,31,0.07), transparent 60%);
   }
   .float-chip{
-    position:absolute; display:flex; align-items:center; gap:10px;
+    position:absolute; display:flex; align-items:center; justify-content:center;
     background:var(--white); border:1px solid var(--line);
-    padding:12px 18px; border-radius:40px;
+    padding:10px; border-radius:50%;
     box-shadow:0 14px 30px rgba(21,19,15,0.08);
-    font-family:var(--mono); font-size:0.78rem; letter-spacing:0.02em; color:var(--ink);
     animation: floaty 6s ease-in-out infinite;
     z-index:2;
   }
@@ -87,6 +86,9 @@
   .chip-linkedin .fc-icon{background:#0a66c2;}
   .chip-facebook{top:2%; left:52%; animation-delay:2.8s;}
   .chip-facebook .fc-icon{background:#0866ff;}
+  .chip-google{top:32%; right:0%; left:auto; animation-delay:4.2s; border-radius:40px; padding:10px 16px 10px 10px; gap:10px;}
+  .chip-google .fc-icon{background:#ffffff; border:1px solid var(--line);}
+  .chip-google .fc-label{font-family:var(--mono); font-size:0.78rem; letter-spacing:0.02em; color:var(--ink); white-space:nowrap;}
   @keyframes floaty{
     0%,100%{transform:translateY(0px) rotate(-1deg);}
     50%{transform:translateY(-14px) rotate(1deg);}
@@ -337,15 +339,16 @@
 <header class="hero">
   <div class="float-chip chip-instagram">
     <span class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span>
-    Instagram
   </div>
   <div class="float-chip chip-linkedin">
     <span class="fc-icon"><svg viewBox="0 0 24 24" fill="white" stroke="none"><rect x="3" y="9" width="4" height="12"/><circle cx="5" cy="4.5" r="2.2"/><path d="M11 9h4v2c1-1.6 2.6-2.4 4.5-2.4 3.3 0 5.5 2.2 5.5 6.2V21h-4v-5.6c0-1.8-.7-3-2.3-3-1.3 0-2.1.9-2.4 1.8-.1.3-.1.7-.1 1.1V21h-4V9z"/></svg></span>
-    LinkedIn
   </div>
   <div class="float-chip chip-facebook">
     <span class="fc-icon"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M15 8h2.5V4.5H15c-2.5 0-4 1.6-4 4.2V11H8.5v3.5H11V21h3.5v-6.5H17l.5-3.5h-3V9c0-.7.3-1 1.5-1z"/></svg></span>
-    Facebook
+  </div>
+  <div class="float-chip chip-google">
+    <span class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6" stroke="#4285F4"/><path d="M21 21l-5.2-5.2" stroke="#EA4335" stroke-linecap="round"/></svg></span>
+    <span class="fc-label">Google Ads</span>
   </div>
   <div class="wrap">
     <div class="eyebrow">Social Media Client Acquisition</div>
@@ -354,11 +357,6 @@
     <div class="hero-actions">
       <a class="btn-primary" href="mailto:temosho.media@gmail.com">Book a call</a>
       <a class="btn-ghost" href="#verticals">See who we work with</a>
-    </div>
-    <div class="stat-row">
-      <div class="stat"><b>8+</b><span>Pieces of content / month</span></div>
-      <div class="stat"><b>Calls &amp; Emails</b><span>New consultations, delivered directly</span></div>
-      <div class="stat"><b>1</b><span>Simple monthly hand-off</span></div>
     </div>
   </div>
 </header>
@@ -545,13 +543,13 @@
 
       <div class="price-card featured">
         <div class="price-badge">Recommended</div>
-        <div class="price-name">Organic + Meta Ads</div>
-        <div class="price-tag">Organic posting, paired with Meta ads management</div>
+        <div class="price-name">Organic + Google Ads</div>
+        <div class="price-tag">Organic content, paired with Google Ads management</div>
         <div class="price-amount"><span class="cur">$</span>1,000<span class="per">/mo</span></div>
         <ul class="price-features">
           <li>Everything in Organic Growth</li>
-          <li>Facebook &amp; Instagram ads management</li>
-          <li>Faster path to consultations — paid reach fills the gap while organic builds</li>
+          <li>Google Ads management — show up when people search for your services</li>
+          <li>Catches people actively searching, while organic builds your presence over time</li>
         </ul>
         <div class="price-split">
           <div class="split-item"><span>$500</span>Service fee</div>
