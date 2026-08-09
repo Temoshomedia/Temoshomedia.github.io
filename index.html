@@ -207,12 +207,23 @@
 
   /* ---------- PROCESS ---------- */
   section.process{padding:110px 0; background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .process-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:56px;}
-  @media(max-width:820px){.process-grid{grid-template-columns:1fr;}}
-  .step{padding:32px 30px; background:var(--white); border:1px solid var(--line);}
-  .step-index{font-family:var(--mono); color:var(--gold-deep); font-size:0.78rem; letter-spacing:0.1em; margin-bottom:18px;}
-  .step h3{font-family:var(--display); font-weight:600; font-size:1.15rem; margin:0 0 10px;}
-  .step p{color:var(--ink-soft); font-size:0.94rem; line-height:1.6; margin:0;}
+  .timeline{position:relative; margin-top:60px; max-width:640px;}
+  .timeline::before{
+    content:""; position:absolute; left:23px; top:10px; bottom:10px; width:1px;
+    background:repeating-linear-gradient(to bottom, var(--gold) 0, var(--gold) 6px, transparent 6px, transparent 13px);
+  }
+  .tl-step{position:relative; display:flex; gap:26px; padding-bottom:52px;}
+  .tl-step.last{padding-bottom:0;}
+  .tl-num{
+    flex:none; width:48px; height:48px; border-radius:50%;
+    background:var(--white); border:2px solid var(--black); color:var(--black);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--display); font-weight:600; font-size:1.25rem; z-index:1;
+  }
+  .tl-step.last .tl-num{background:var(--black); border-color:var(--black); color:var(--gold-bright);}
+  .tl-content{padding-top:6px;}
+  .tl-content h3{font-family:var(--display); font-weight:600; font-size:1.2rem; margin:0 0 10px; color:var(--ink);}
+  .tl-content p{color:var(--ink-soft); font-size:0.98rem; line-height:1.65; margin:0; max-width:480px;}
 
   /* ---------- PRICING ---------- */
   section.pricing{padding:110px 0; background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
@@ -446,24 +457,50 @@
 <section class="process" id="process">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">How a month runs</div>
-      <h2>From your camera roll to a booked consultation</h2>
+      <div class="eyebrow">How it works</div>
+      <h2>Let me walk you through it, step by step</h2>
+      <p>No jargon, no confusing steps. Here's exactly what happens every month, from start to finish.</p>
     </div>
-    <div class="process-grid">
-      <div class="step">
-        <div class="step-index">01 — You capture</div>
-        <h3>Film as you go</h3>
-        <p>Your phone is the only equipment required. Quick clips of the team at work, a case win, a patient visit — no production needed.</p>
+
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-num">1</div>
+        <div class="tl-content">
+          <h3>You film some quick videos on your phone</h3>
+          <p>Nothing fancy. Just film your team while they're working, like you're showing a friend what your day looks like.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-index">02 — We produce</div>
-        <h3>Edit &amp; design</h3>
-        <p>Raw footage becomes polished video, and branded infographics fill in the gaps — so your feed never runs dry between shoots.</p>
+
+      <div class="tl-step">
+        <div class="tl-num">2</div>
+        <div class="tl-content">
+          <h3>You send it all to me, once a month</h3>
+          <p>At the end of the month, send me everything you filmed in one go. You don't need to sort, trim, or clean it up first.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-index">03 — They reach out</div>
-        <h3>Calls &amp; emails come in</h3>
-        <p>Content is built to move people to act — so new consultations land as a phone call or an email, not just a comment.</p>
+
+      <div class="tl-step">
+        <div class="tl-num">3</div>
+        <div class="tl-content">
+          <h3>I turn it into real content</h3>
+          <p>I edit your videos, design pictures, and get everything looking sharp and ready to post.</p>
+        </div>
+      </div>
+
+      <div class="tl-step">
+        <div class="tl-num">4</div>
+        <div class="tl-content">
+          <h3>I post it for you, all month long</h3>
+          <p>Your Facebook, Instagram, and LinkedIn get updated on a steady schedule, so you never have to think about it.</p>
+        </div>
+      </div>
+
+      <div class="tl-step last">
+        <div class="tl-num">5</div>
+        <div class="tl-content">
+          <h3>People start reaching out to you</h3>
+          <p>People who see your content start calling or emailing you to book a consultation. That's the whole point.</p>
+        </div>
       </div>
     </div>
   </div>
