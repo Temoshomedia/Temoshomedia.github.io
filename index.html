@@ -388,7 +388,7 @@
     text-transform:none; letter-spacing:0; line-height:1.45;
     color:var(--white); margin-bottom:20px;
   }
-  .question-label .req{color:var(--gold-bright);}
+  .req{color:var(--gold-bright);}
   .radio-group{display:flex; flex-direction:column; gap:16px; margin-top:14px;}
   .radio-group .checkbox-item{
     align-items:center; line-height:1.5; gap:16px;
@@ -635,7 +635,7 @@
     <h2>Let's get you more consultations.</h2>
     <p class="cta-sub">We require an intro so we can optimize your account. Fill in your details below and we'll be in touch to get you set up.<br><em>(It is all custom after all)</em></p>
 
-    <form class="booking-form" action="https://formsubmit.co/temosho.media@gmail.com" method="POST">
+    <form class="booking-form" action="https://formsubmit.co/temosho.media@gmail.com" method="POST" onsubmit="return (function(){var boxes=document.querySelectorAll('input[name=\'Platforms\']:checked'); if(boxes.length===0){alert('Please select at least one social media platform.'); return false;} return true;})();">
       <input type="hidden" name="_subject" value="New consultation request — Temosho Media">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -653,12 +653,12 @@
 
       <div class="form-row">
         <div class="form-field">
-          <label for="f-phone">Phone</label>
-          <input type="tel" id="f-phone" name="Phone">
+          <label for="f-phone">Phone <span class="req">*</span></label>
+          <input type="tel" id="f-phone" name="Phone" required>
         </div>
         <div class="form-field">
-          <label for="f-package">Package</label>
-          <select id="f-package" name="Package">
+          <label for="f-package">Package <span class="req">*</span></label>
+          <select id="f-package" name="Package" required>
             <option>Organic Growth — $300/mo</option>
             <option>Organic + Google Ads — $800/mo</option>
             <option>Custom plan</option>
@@ -711,8 +711,8 @@
       </div>
 
       <div class="form-field form-field-full">
-        <label for="f-revenue">What is your monthly revenue?</label>
-        <select id="f-revenue" name="Monthly Revenue">
+        <label for="f-revenue">What is your monthly revenue? <span class="req">*</span></label>
+        <select id="f-revenue" name="Monthly Revenue" required>
           <option>Less than $10k/mo</option>
           <option>$10k - $30k/mo</option>
           <option>$30k - $50k/mo</option>
@@ -722,16 +722,17 @@
       </div>
 
       <div class="form-field form-field-full">
-        <label for="f-website">What is your website?</label>
-        <input type="url" id="f-website" name="Website" placeholder="https://yourpractice.com">
+        <label for="f-website">What is your website? <span class="req">*</span></label>
+        <input type="url" id="f-website" name="Website" placeholder="https://yourpractice.com" required>
       </div>
 
       <div class="form-field form-field-full">
-        <label>Which social media platforms do you want us to manage?</label>
+        <label>Which social media platforms do you want us to manage? <span class="req">*</span></label>
         <div class="platform-checks">
-          <label class="checkbox-item"><input type="checkbox" name="Platforms" value="LinkedIn"> LinkedIn</label>
-          <label class="checkbox-item"><input type="checkbox" name="Platforms" value="Facebook"> Facebook</label>
-          <label class="checkbox-item"><input type="checkbox" name="Platforms" value="Instagram"> Instagram</label>
+          <label class="checkbox-item"><input type="checkbox" name="Platforms" value="LinkedIn" class="platform-single"> LinkedIn</label>
+          <label class="checkbox-item"><input type="checkbox" name="Platforms" value="Facebook" class="platform-single"> Facebook</label>
+          <label class="checkbox-item"><input type="checkbox" name="Platforms" value="Instagram" class="platform-single"> Instagram</label>
+          <label class="checkbox-item"><input type="checkbox" id="f-platforms-all" onchange="document.querySelectorAll('.platform-single').forEach(function(cb){cb.checked = document.getElementById('f-platforms-all').checked;});"> All of the above</label>
         </div>
       </div>
 
