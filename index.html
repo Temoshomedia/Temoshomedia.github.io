@@ -635,7 +635,19 @@
     <h2>Let's get you more consultations.</h2>
     <p class="cta-sub">We require an intro so we can optimize your account. Fill in your details below and we'll be in touch to get you set up.<br><em>(It is all custom after all)</em></p>
 
-    <form class="booking-form" action="https://formsubmit.co/temosho.media@gmail.com" method="POST" onsubmit="return (function(){var boxes=document.querySelectorAll('input[name=\'Platforms\']:checked'); if(boxes.length===0){alert('Please select at least one social media platform.'); return false;} return true;})();">
+    <form class="booking-form" action="https://formsubmit.co/temosho.media@gmail.com" method="POST" onsubmit="return (function(){
+        var services = Array.prototype.map.call(document.querySelectorAll('.service-check:checked'), function(cb){return cb.value;});
+        var otherBox = document.getElementById('f-service-other-check');
+        var otherText = document.getElementById('f-service-other');
+        if(otherBox && otherBox.checked && otherText && otherText.value.trim()){ services.push('Other: ' + otherText.value.trim()); }
+        document.getElementById('f-services-hidden').value = services.join(', ');
+
+        var platforms = Array.prototype.map.call(document.querySelectorAll('.platform-check:checked'), function(cb){return cb.value;});
+        if(platforms.length===0){ alert('Please select at least one social media platform.'); return false; }
+        document.getElementById('f-platforms-hidden').value = platforms.join(', ');
+
+        return true;
+      })();">
       <input type="hidden" name="_subject" value="New consultation request — Temosho Media">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -672,30 +684,30 @@
         <div class="checkbox-group">
           <div class="checkbox-col">
             <div class="checkbox-col-head">Law Firm</div>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Personal Injury"> Personal Injury</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Family Law"> Family Law</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Criminal Defense"> Criminal Defense</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Estate Planning"> Estate Planning</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Immigration"> Immigration</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Medical Malpractice"> Medical Malpractice</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Workers' Compensation"> Workers' Compensation</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Business & Corporate Law"> Business &amp; Corporate Law</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Real Estate Law"> Real Estate Law</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="DUI Defense"> DUI Defense</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Personal Injury"> Personal Injury</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Family Law"> Family Law</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Criminal Defense"> Criminal Defense</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Estate Planning"> Estate Planning</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Immigration"> Immigration</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Medical Malpractice"> Medical Malpractice</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Workers' Compensation"> Workers' Compensation</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Business & Corporate Law"> Business &amp; Corporate Law</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Real Estate Law"> Real Estate Law</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="DUI Defense"> DUI Defense</label>
           </div>
 
           <div class="checkbox-col">
             <div class="checkbox-col-head">Dental Clinic</div>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="General Dentistry"> General Dentistry</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Cosmetic & Whitening"> Cosmetic &amp; Whitening</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Implants"> Implants</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Orthodontics"> Orthodontics</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Emergency Care"> Emergency Care</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Veneers"> Veneers</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Invisalign"> Invisalign</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Full Mouth Reconstruction"> Full Mouth Reconstruction</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Oral Surgery"> Oral Surgery</label>
-            <label class="checkbox-item"><input type="checkbox" name="Services" value="Root Canals"> Root Canals</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="General Dentistry"> General Dentistry</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Cosmetic & Whitening"> Cosmetic &amp; Whitening</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Implants"> Implants</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Orthodontics"> Orthodontics</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Emergency Care"> Emergency Care</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Veneers"> Veneers</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Invisalign"> Invisalign</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Full Mouth Reconstruction"> Full Mouth Reconstruction</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Oral Surgery"> Oral Surgery</label>
+            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Root Canals"> Root Canals</label>
           </div>
         </div>
 
@@ -729,9 +741,9 @@
       <div class="form-field form-field-full">
         <label>Which social media platforms do you want us to manage? <span class="req">*</span></label>
         <div class="platform-checks">
-          <label class="checkbox-item"><input type="checkbox" name="Platforms" value="LinkedIn" class="platform-single"> LinkedIn</label>
-          <label class="checkbox-item"><input type="checkbox" name="Platforms" value="Facebook" class="platform-single"> Facebook</label>
-          <label class="checkbox-item"><input type="checkbox" name="Platforms" value="Instagram" class="platform-single"> Instagram</label>
+          <label class="checkbox-item"><input type="checkbox" class="platform-check platform-single" value="LinkedIn"> LinkedIn</label>
+          <label class="checkbox-item"><input type="checkbox" class="platform-check platform-single" value="Facebook"> Facebook</label>
+          <label class="checkbox-item"><input type="checkbox" class="platform-check platform-single" value="Instagram"> Instagram</label>
           <label class="checkbox-item"><input type="checkbox" id="f-platforms-all" onchange="document.querySelectorAll('.platform-single').forEach(function(cb){cb.checked = document.getElementById('f-platforms-all').checked;});"> All of the above</label>
         </div>
       </div>
@@ -750,6 +762,8 @@
       </div>
 
       <button type="submit" class="btn-primary form-submit">Send request</button>
+      <input type="hidden" id="f-services-hidden" name="Services">
+      <input type="hidden" id="f-platforms-hidden" name="Platforms">
     </form>
   </div>
 </section>
