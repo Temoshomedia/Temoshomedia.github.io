@@ -574,49 +574,34 @@
   <div class="wrap">
     <div class="sec-head" style="text-align:center; max-width:640px; margin-left:auto; margin-right:auto;">
       <div class="eyebrow" style="justify-content:center;">Pricing</div>
-      <h2>Three ways to grow</h2>
-      <p>Start with Meta ads, add Google Ads on top, or tell us your budget and we'll build something around it.</p>
+      <h2>One service, built to bring in consultations</h2>
+      <p>Social media ads and Google Ads, run together as one system — or tell us your budget and we'll build a plan around it.</p>
     </div>
 
-    <div class="price-grid">
-      <div class="price-card">
-        <div class="price-name">Meta Ads Growth Package</div>
-        <div class="price-tag">Facebook &amp; Instagram content, backed by Meta ads</div>
-        <div class="price-amount"><span class="cur">$</span>500<span class="per">/mo</span></div>
+    <div class="price-grid price-grid-two">
+      <div class="price-card featured">
+        <div class="price-badge">Our Service</div>
+        <div class="price-name">Social Media Ads + Google Ads</div>
+        <div class="price-tag">Content, Meta ads, and Google Ads — managed as one system</div>
+        <div class="price-amount"><span class="cur">$</span>1,000<span class="per">/mo</span></div>
         <ul class="price-features">
           <li>4 pieces of content per month, edited &amp; scheduled</li>
           <li>Branded infographics mixed with real content</li>
-          <li>Consistent posting across your channels</li>
-          <li>Meta ads drive the bulk of your traffic, with organic content building your page around it</li>
-        </ul>
-        <div class="price-split">
-          <div class="split-item"><span>$300</span>Service fee</div>
-          <div class="split-item"><span>$200</span>Monthly ad budget</div>
-        </div>
-        <a class="btn-ghost price-btn" href="#book">Open Account</a>
-      </div>
-
-      <div class="price-card featured">
-        <div class="price-badge">Recommended</div>
-        <div class="price-name">Meta + Google Ads Package</div>
-        <div class="price-tag">Meta ads-driven content, paired with Google Ads management</div>
-        <div class="price-amount"><span class="cur">$</span>800<span class="per">/mo</span></div>
-        <ul class="price-features">
-          <li>Everything in the Meta Ads Growth Package</li>
+          <li>Facebook &amp; Instagram ads management</li>
           <li>Google Ads management — show up when people search for your services</li>
-          <li>Catches people actively searching, while your Meta ads keep building visibility in the background</li>
+          <li>Two channels working together: ads that catch attention, and ads that catch active searches</li>
         </ul>
         <div class="price-split">
           <div class="split-item"><span>$500</span>Service fee</div>
-          <div class="split-item"><span>$300</span>Monthly ad budget</div>
+          <div class="split-item"><span>$500</span>Monthly ad budget</div>
         </div>
         <a class="btn-primary price-btn" href="#book">Open Account</a>
       </div>
 
       <div class="price-card custom">
         <div class="price-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4l-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></svg></div>
-        <div class="price-name">Not seeing your fit?</div>
-        <div class="price-tag">Every business is different — if neither plan matches where you're at, let's build one around your needs and monthly budget.</div>
+        <div class="price-name">Working with a different budget?</div>
+        <div class="price-tag">Every business is different — tell us what you can spend and we'll build a custom ad plan around it, at a pace that fits your budget.</div>
         <a class="btn-ghost price-btn" href="mailto:temosho.media@gmail.com">Request a custom plan</a>
       </div>
     </div>
@@ -657,6 +642,12 @@
         var platforms = Array.prototype.map.call(document.querySelectorAll('.platform-check:checked'), function(cb){return cb.value;});
         if(platforms.length===0){ alert('Please select at least one social media platform.'); return false; }
         document.getElementById('f-platforms-hidden').value = platforms.join(', ');
+
+        var channels = Array.prototype.map.call(document.querySelectorAll('.channel-check:checked'), function(cb){return cb.value;});
+        var channelOtherBox = document.getElementById('f-channel-other-check');
+        var channelOtherText = document.getElementById('f-channel-other');
+        if(channelOtherBox && channelOtherBox.checked && channelOtherText && channelOtherText.value.trim()){ channels.push('Other: ' + channelOtherText.value.trim()); }
+        document.getElementById('f-channels-hidden').value = channels.join(', ');
 
         return true;
       })();">
@@ -751,13 +742,21 @@
       </div>
 
       <div class="form-field form-field-full">
-        <label>Which social media platforms do you want us to manage? <span class="req">*</span></label>
+        <label>What channels do you use to receive consultations?</label>
         <div class="platform-checks">
-          <label class="checkbox-item"><input type="checkbox" class="platform-check platform-single" value="LinkedIn"> LinkedIn</label>
-          <label class="checkbox-item"><input type="checkbox" class="platform-check platform-single" value="Facebook"> Facebook</label>
-          <label class="checkbox-item"><input type="checkbox" class="platform-check platform-single" value="Instagram"> Instagram</label>
-          <label class="checkbox-item"><input type="checkbox" id="f-platforms-all" onchange="document.querySelectorAll('.platform-single').forEach(function(cb){cb.checked = document.getElementById('f-platforms-all').checked;});"> All of the above</label>
+          <label class="checkbox-item"><input type="checkbox" class="channel-check" value="WhatsApp Inbox"> WhatsApp Inbox</label>
+          <label class="checkbox-item"><input type="checkbox" class="channel-check" value="Email Inbox"> Email Inbox</label>
+          <label class="checkbox-item"><input type="checkbox" class="channel-check" value="Calls"> Calls</label>
         </div>
+        <label class="checkbox-item checkbox-other-toggle">
+          <input type="checkbox" id="f-channel-other-check" onchange="document.getElementById('f-channel-other-wrap').style.display = this.checked ? 'flex' : 'none';">
+          Other
+        </label>
+      </div>
+
+      <div class="form-field form-field-full" id="f-channel-other-wrap" style="display:none;">
+        <label for="f-channel-other">Please specify</label>
+        <input type="text" id="f-channel-other" name="Channel (Other)" placeholder="What other channel do you use?">
       </div>
 
       <div class="form-field form-field-full">
@@ -784,6 +783,7 @@
       <button type="submit" class="btn-primary form-submit">Send request</button>
       <input type="hidden" id="f-services-hidden" name="Services">
       <input type="hidden" id="f-platforms-hidden" name="Platforms">
+      <input type="hidden" id="f-channels-hidden" name="Consultation Channels">
     </form>
   </div>
 </section>
