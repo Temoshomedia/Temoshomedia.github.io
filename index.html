@@ -707,10 +707,6 @@
         if(otherBox && otherBox.checked && otherText && otherText.value.trim()){ services.push('Other: ' + otherText.value.trim()); }
         document.getElementById('f-services-hidden').value = services.join(', ');
 
-        var platforms = Array.prototype.map.call(document.querySelectorAll('.platform-check:checked'), function(cb){return cb.value;});
-        if(platforms.length===0){ alert('Please select at least one social media platform.'); return false; }
-        document.getElementById('f-platforms-hidden').value = platforms.join(', ');
-
         var channels = Array.prototype.map.call(document.querySelectorAll('.channel-check:checked'), function(cb){return cb.value;});
         var channelOtherBox = document.getElementById('f-channel-other-check');
         var channelOtherText = document.getElementById('f-channel-other');
@@ -844,7 +840,6 @@
 
       <button type="submit" class="btn-primary form-submit">Continue to book a call</button>
       <input type="hidden" id="f-services-hidden" name="Services">
-      <input type="hidden" id="f-platforms-hidden" name="Platforms">
       <input type="hidden" id="f-channels-hidden" name="Consultation Channels">
     </form>
 
