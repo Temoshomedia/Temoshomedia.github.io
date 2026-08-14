@@ -81,14 +81,14 @@
     display:flex; align-items:center; justify-content:center; color:var(--white);
   }
   .float-chip .fc-icon svg{width:14px;height:14px;}
-  .chip-instagram{top:10%; right:10%; animation-delay:0s;}
-  .chip-instagram .fc-icon{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);}
-  .chip-linkedin{top:56%; right:5%; animation-delay:1.4s;}
-  .chip-linkedin .fc-icon{background:#0a66c2;}
-  .chip-facebook{top:2%; left:46%; animation-delay:2.8s;}
-  .chip-facebook .fc-icon{background:#0866ff;}
-  .chip-google{top:24%; right:4%; left:auto; animation-delay:4.2s; position:absolute; width:220px; z-index:2;}
-  .chip-google-dental{bottom:20px; top:auto; right:4%; left:auto; animation-delay:2.1s; position:absolute; width:220px; z-index:2;}
+  .chip-social-fb{top:16px; right:6%; position:absolute; width:230px; z-index:2; animation-delay:0.7s;}
+  .chip-social-ig{top:calc(16px + 260px); right:6%; position:absolute; width:230px; z-index:2; animation-delay:3.5s;}
+  .chip-google{top:calc(16px + 520px); right:4%; left:auto; animation-delay:4.2s; position:absolute; width:220px; z-index:2;}
+  .chip-google-dental{bottom:16px; top:auto; right:4%; left:auto; animation-delay:2.1s; position:absolute; width:220px; z-index:2;}
+  .avatar-fb{background:#0866ff;}
+  .avatar-ig{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);}
+  .platform-fb{background:#0866ff;}
+  .platform-ig{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);}
 
   .search-mock{
     background:var(--white); border:1px solid var(--line); border-radius:8px;
@@ -114,6 +114,37 @@
   @media(max-width:900px){.search-mock{display:none;}}
   .chip-google .fc-icon{background:#ffffff; border:1px solid var(--line);}
   .chip-google .fc-label{font-family:var(--mono); font-size:0.78rem; letter-spacing:0.02em; color:var(--ink); white-space:nowrap;}
+
+  .social-mock{
+    background:var(--white); border:1px solid var(--line); border-radius:8px;
+    box-shadow:0 14px 30px rgba(21,19,15,0.1); padding:12px; animation: floaty 6s ease-in-out infinite;
+  }
+  .social-header{display:flex; align-items:center; gap:8px; margin-bottom:10px;}
+  .social-avatar{
+    width:26px; height:26px; border-radius:50%; flex:none;
+    background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);
+  }
+  .social-header-text{display:flex; flex-direction:column; flex:1; line-height:1.2;}
+  .social-name{font-family:var(--body); font-size:0.76rem; font-weight:600; color:var(--ink);}
+  .social-sponsored{font-family:var(--body); font-size:0.64rem; color:var(--ink-faint);}
+  .social-platform-icon{
+    width:22px; height:22px; border-radius:50%; flex:none;
+    background:#0866ff; display:flex; align-items:center; justify-content:center;
+  }
+  .social-platform-icon svg{width:12px; height:12px;}
+  .social-creative{
+    height:90px; border-radius:4px; margin-bottom:10px;
+    background:linear-gradient(135deg, #e3edfd, #fdead4);
+  }
+  .social-caption{font-family:var(--body); font-size:0.74rem; color:var(--ink); line-height:1.4; margin-bottom:10px;}
+  .social-actions{display:flex; align-items:center; gap:10px; border-top:1px solid var(--line); padding-top:9px;}
+  .social-icon{color:var(--ink-faint); flex:none;}
+  .social-icon svg{width:16px; height:16px;}
+  .social-cta{
+    margin-left:auto; font-family:var(--mono); font-size:0.66rem; font-weight:600; letter-spacing:0.02em; text-transform:uppercase;
+    background:var(--paper); border:1px solid var(--line); color:var(--ink); padding:5px 10px; border-radius:3px;
+  }
+  @media(max-width:900px){.social-mock{display:none;}}
   @keyframes floaty{
     0%,100%{transform:translateY(0px) rotate(-1deg);}
     50%{transform:translateY(-14px) rotate(1deg);}
@@ -466,17 +497,39 @@
 </nav>
 
 <header class="hero">
-  <div class="float-chip chip-instagram">
-    <span class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span>
-    <span class="fc-label">Instagram</span>
+  <div class="social-mock chip-social-fb">
+    <div class="social-header">
+      <span class="social-avatar avatar-fb"></span>
+      <div class="social-header-text">
+        <span class="social-name">Your Practice</span>
+        <span class="social-sponsored">Sponsored</span>
+      </div>
+      <span class="social-platform-icon platform-fb"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M15 8h2.5V4.5H15c-2.5 0-4 1.6-4 4.2V11H8.5v3.5H11V21h3.5v-6.5H17l.5-3.5h-3V9c0-.7.3-1 1.5-1z"/></svg></span>
+    </div>
+    <div class="social-creative"></div>
+    <div class="social-caption">Free case evaluation — call or message us today</div>
+    <div class="social-actions">
+      <span class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.4-9.5-9A5.5 5.5 0 0112 5.5 5.5 5.5 0 0121.5 12c-2.5 4.6-9.5 9-9.5 9z"/></svg></span>
+      <span class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 01-8.4 8.4 8.5 8.5 0 01-4-1L3 20l1.1-3.7a8.4 8.4 0 01-1-4A8.4 8.4 0 0111.5 3 8.4 8.4 0 0121 11.5z"/></svg></span>
+      <span class="social-cta">Learn More</span>
+    </div>
   </div>
-  <div class="float-chip chip-linkedin">
-    <span class="fc-icon"><svg viewBox="0 0 24 24" fill="white" stroke="none"><rect x="3" y="9" width="4" height="12"/><circle cx="5" cy="4.5" r="2.2"/><path d="M11 9h4v2c1-1.6 2.6-2.4 4.5-2.4 3.3 0 5.5 2.2 5.5 6.2V21h-4v-5.6c0-1.8-.7-3-2.3-3-1.3 0-2.1.9-2.4 1.8-.1.3-.1.7-.1 1.1V21h-4V9z"/></svg></span>
-    <span class="fc-label">LinkedIn</span>
-  </div>
-  <div class="float-chip chip-facebook">
-    <span class="fc-icon"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M15 8h2.5V4.5H15c-2.5 0-4 1.6-4 4.2V11H8.5v3.5H11V21h3.5v-6.5H17l.5-3.5h-3V9c0-.7.3-1 1.5-1z"/></svg></span>
-    <span class="fc-label">Facebook</span>
+  <div class="social-mock chip-social-ig">
+    <div class="social-header">
+      <span class="social-avatar avatar-ig"></span>
+      <div class="social-header-text">
+        <span class="social-name">Your Practice</span>
+        <span class="social-sponsored">Sponsored</span>
+      </div>
+      <span class="social-platform-icon platform-ig"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span>
+    </div>
+    <div class="social-creative"></div>
+    <div class="social-caption">Free consultation — book your smile makeover today</div>
+    <div class="social-actions">
+      <span class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.4-9.5-9A5.5 5.5 0 0112 5.5 5.5 5.5 0 0121.5 12c-2.5 4.6-9.5 9-9.5 9z"/></svg></span>
+      <span class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 01-8.4 8.4 8.5 8.5 0 01-4-1L3 20l1.1-3.7a8.4 8.4 0 01-1-4A8.4 8.4 0 0111.5 3 8.4 8.4 0 0121 11.5z"/></svg></span>
+      <span class="social-cta">Learn More</span>
+    </div>
   </div>
   <div class="search-mock chip-google">
     <div class="search-bar">
