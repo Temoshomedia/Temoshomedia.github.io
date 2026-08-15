@@ -321,6 +321,29 @@
   .price-amount .cur{font-size:1.4rem; vertical-align:top; margin-right:2px;}
   .price-amount .per{font-family:var(--mono); font-size:0.9rem; color:var(--ink-faint); font-weight:400; margin-left:4px;}
   .price-card.featured .price-amount .per{color:#8f8874;}
+  .billing-toggle{display:flex; gap:8px; margin-bottom:22px;}
+  .billing-btn{
+    font-family:var(--mono); font-size:0.72rem; letter-spacing:0.03em; text-transform:uppercase;
+    background:rgba(255,255,255,0.04); color:var(--cream); border:1px solid rgba(255,255,255,0.18);
+    padding:9px 14px; border-radius:20px; cursor:pointer; transition:border-color .15s, background .15s, color .15s;
+    display:flex; align-items:center; gap:6px;
+  }
+  .billing-btn:hover{border-color:var(--gold-bright);}
+  .billing-btn.active{background:var(--gold-bright); border-color:var(--gold-bright); color:var(--black); font-weight:600;}
+  .save-badge{
+    font-size:0.62rem; background:rgba(37,211,102,0.18); color:#4ade80; padding:2px 6px; border-radius:10px;
+  }
+  .billing-btn.active .save-badge{background:rgba(21,19,15,0.15); color:#166534;}
+  .price-billing-note{
+    font-family:var(--mono); font-size:0.75rem; color:#8f8874; margin-top:-18px; margin-bottom:22px;
+  }
+  .price-metric{
+    display:flex; flex-direction:column; gap:4px;
+    background:rgba(201,150,46,0.08); border:1px solid rgba(201,150,46,0.25);
+    padding:16px 18px; margin-bottom:24px;
+  }
+  .metric-number{font-family:var(--display); font-weight:600; font-size:1.5rem; color:var(--gold-bright);}
+  .metric-label{font-family:var(--body); font-size:0.82rem; color:#cfc8b4; line-height:1.4;}
   .price-features{list-style:none; margin:0 0 28px; padding:0; flex-grow:1;}
   .price-features li{
     font-size:0.92rem; line-height:1.5; padding:12px 0 12px 24px; position:relative;
@@ -709,13 +732,24 @@
         <div class="price-badge">Our Service</div>
         <div class="price-name">Social Media Ads + Google Ads</div>
         <div class="price-tag">Content, Meta ads, and Google Ads — managed as one system</div>
-        <div class="price-amount"><span class="cur">$</span>1,000<span class="per">/mo</span></div>
+
+        <div class="billing-toggle">
+          <button type="button" class="billing-btn active" data-billing="monthly" onclick="window.setBilling('monthly')">Monthly</button>
+          <button type="button" class="billing-btn" data-billing="annual" onclick="window.setBilling('annual')">Annual <span class="save-badge">Save 10%</span></button>
+        </div>
+
+        <div class="price-amount" id="price-amount-display"><span class="cur">$</span>500<span class="per">/mo</span></div>
+        <div class="price-billing-note" id="price-billing-note">Billed monthly</div>
+        <div class="price-metric">
+          <span class="metric-number">40,000 – 60,000</span>
+          <span class="metric-label">projected monthly views from people actively looking for a service like yours</span>
+        </div>
         <ul class="price-features">
-          <li>4 pieces of content per month, edited &amp; scheduled</li>
-          <li>Branded infographics mixed with real content</li>
-          <li>Facebook &amp; Instagram ads management</li>
+          <li>Facebook &amp; Instagram ads management, built from the content you're already posting</li>
           <li>Google Ads management — show up when people search for your services</li>
+          <li>Ad creative and targeting handled for you, tested and refined monthly</li>
           <li>Two channels working together: ads that catch attention, and ads that catch active searches</li>
+          <li>Budget management — every dollar tracked between ad spend and performance</li>
         </ul>
         <div class="price-note">Billed monthly. Your subscription directly funds your Google &amp; Meta ad campaigns, with a portion kept as our service fee for running and managing them.</div>
         <a class="btn-primary price-btn" href="#book">Open Account</a>
@@ -778,7 +812,8 @@
         <div class="form-field">
           <label for="f-package">Service <span class="req">*</span></label>
           <select id="f-package" name="Service" required>
-            <option>Social Media Ads + Google Ads — $1,000/mo</option>
+            <option>Social Media Ads + Google Ads — Monthly ($500/mo)</option>
+            <option>Social Media Ads + Google Ads — Annual ($450/mo, billed $5,400/yr, 10% off)</option>
           </select>
         </div>
       </div>
@@ -931,6 +966,26 @@
     document.querySelectorAll('#' + hideId + ' .service-check').forEach(function(cb){ cb.checked = false; });
     document.querySelectorAll('.category-btn').forEach(function(btn){
       btn.classList.toggle('active', btn.getAttribute('data-category') === category);
+    });
+  };
+
+  window.setBilling = function(cycle){
+    var display = document.getElementById('price-amount-display');
+    var note = document.getElementById('price-billing-note');
+    var select = document.getElementById('f-package');
+
+    if(cycle === 'annual'){
+      display.innerHTML = '<span class="cur">$</span>450<span class="per">/mo</span>';
+      note.textContent = 'Billed annually at $5,400/yr — 10% off the monthly rate';
+      if(select){ select.value = 'Social Media Ads + Google Ads — Annual ($450/mo, billed $5,400/yr, 10% off)'; }
+    } else {
+      display.innerHTML = '<span class="cur">$</span>500<span class="per">/mo</span>';
+      note.textContent = 'Billed monthly';
+      if(select){ select.value = 'Social Media Ads + Google Ads — Monthly ($500/mo)'; }
+    }
+
+    document.querySelectorAll('.billing-btn').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-billing') === cycle);
     });
   };
 </script>
