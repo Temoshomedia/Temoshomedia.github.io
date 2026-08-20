@@ -294,43 +294,52 @@
     display:flex; flex-direction:column; position:relative;
   }
   .price-card.featured{
-    border-color:var(--black); background:var(--black); color:var(--cream);
+    border-color:#1a1830; background:#1a1830; color:var(--cream);
   }
   .price-badge{
     position:absolute; top:-13px; right:36px;
-    background:var(--gold-bright); color:var(--black);
+    background:#7c5cff; color:var(--white);
     font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
     padding:6px 12px;
   }
-  .price-name{font-family:var(--display); font-size:1.4rem; font-weight:600; margin-bottom:8px;}
+  .price-name{font-family:var(--display); font-size:1.4rem; font-weight:600; margin-bottom:8px; color:var(--ink);}
   .price-card.featured .price-name{color:var(--white);}
   .price-tag{font-size:0.92rem; color:var(--ink-soft); margin-bottom:28px; line-height:1.5;}
-  .price-card.featured .price-tag{color:#b9b2a0;}
+  .price-card.featured .price-tag{color:#b3aed6;}
   .price-amount{
     font-family:var(--display); font-weight:600; font-size:2.2rem; margin-bottom:28px; color:var(--ink);
   }
-  .price-card.featured .price-amount{color:var(--gold-bright);}
+  .price-card.featured .price-amount{color:#a78bfa;}
   .price-amount .cur{font-size:1.4rem; vertical-align:top; margin-right:2px;}
   .price-amount .per{font-family:var(--mono); font-size:0.9rem; color:var(--ink-faint); font-weight:400; margin-left:4px;}
-  .price-card.featured .price-amount .per{color:#8f8874;}
+  .price-card.featured .price-amount .per{color:#8f87ad;}
   .price-breakdown{
-    border:1px solid rgba(255,255,255,0.14); border-radius:4px; overflow:hidden; margin-bottom:24px;
+    border:1px solid var(--line); border-radius:4px; overflow:hidden; margin-bottom:24px;
   }
+  .price-card.featured .price-breakdown{border-color:rgba(255,255,255,0.14);}
   .breakdown-row, .breakdown-total{
     display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-    padding:14px 16px; border-bottom:1px solid rgba(255,255,255,0.1);
+    padding:14px 16px; border-bottom:1px solid var(--line);
   }
-  .breakdown-row .breakdown-label{font-family:var(--body); font-size:0.9rem; color:var(--cream);}
-  .breakdown-note{font-family:var(--mono); font-size:0.66rem; color:#8f8874; display:block; margin-top:2px;}
-  .breakdown-row .breakdown-value{font-family:var(--display); font-weight:600; font-size:1.05rem; color:var(--white); white-space:nowrap;}
+  .price-card.featured .breakdown-row, .price-card.featured .breakdown-total{border-bottom-color:rgba(255,255,255,0.1);}
+  .breakdown-row .breakdown-label{font-family:var(--body); font-size:0.9rem; color:var(--ink);}
+  .price-card.featured .breakdown-row .breakdown-label{color:var(--cream);}
+  .breakdown-note{font-family:var(--mono); font-size:0.66rem; color:var(--ink-faint); display:block; margin-top:2px;}
+  .price-card.featured .breakdown-note{color:#8f87ad;}
+  .breakdown-row .breakdown-value{font-family:var(--display); font-weight:600; font-size:1.05rem; color:var(--ink); white-space:nowrap;}
+  .price-card.featured .breakdown-row .breakdown-value{color:var(--white);}
   .breakdown-total{
-    background:rgba(201,150,46,0.08);
+    background:rgba(124,92,255,0.08);
   }
-  .breakdown-total .breakdown-label{font-family:var(--mono); font-size:0.76rem; letter-spacing:0.02em; text-transform:uppercase; color:#cfc8b4;}
-  .breakdown-total .breakdown-value{font-family:var(--display); font-weight:600; font-size:1.4rem; color:var(--gold-bright);}
+  .price-card.featured .breakdown-total{background:rgba(167,139,250,0.12);}
+  .breakdown-total .breakdown-label{font-family:var(--mono); font-size:0.76rem; letter-spacing:0.02em; text-transform:uppercase; color:#5b3fd4;}
+  .price-card.featured .breakdown-total .breakdown-label{color:#cabffc;}
+  .breakdown-total .breakdown-value{font-family:var(--display); font-weight:600; font-size:1.4rem; color:#6d3fd6;}
+  .price-card.featured .breakdown-total .breakdown-value{color:#a78bfa;}
   .breakdown-caption{
-    font-family:var(--mono); font-size:0.7rem; color:#8f8874; padding:10px 16px;
+    font-family:var(--mono); font-size:0.7rem; color:var(--ink-faint); padding:10px 16px;
   }
+  .price-card.featured .breakdown-caption{color:#8f87ad;}
   .price-features{list-style:none; margin:0 0 28px; padding:0; flex-grow:1;}
   .price-features li{
     font-size:0.92rem; line-height:1.5; padding:12px 0 12px 24px; position:relative;
@@ -338,22 +347,20 @@
   }
   .price-card.featured .price-features li{border-top:1px solid rgba(255,255,255,0.12); color:var(--cream);}
   .price-features li::before{
-    content:"—"; position:absolute; left:0; color:var(--gold-deep); font-family:var(--mono);
+    content:"—"; position:absolute; left:0; color:#6d3fd6; font-family:var(--mono);
   }
-  .price-card.featured .price-features li::before{color:var(--gold-bright);}
+  .price-card.featured .price-features li::before{color:#a78bfa;}
   .price-note{
     font-size:0.86rem; line-height:1.6; color:var(--ink-soft); background:var(--paper);
     border:1px solid var(--line); padding:16px 18px; margin-bottom:28px;
   }
-  .price-note b{color:var(--gold-deep);}
-  .price-split{display:flex; gap:16px; margin-bottom:28px;}
-  .split-item{
-    flex:1; border:1px solid rgba(255,255,255,0.14); padding:16px 14px; text-align:center;
-  }
-  .split-item span{display:block; font-family:var(--display); font-size:1.15rem; font-weight:600; color:var(--gold-bright); margin-bottom:4px;}
-  .split-item{font-family:var(--mono); font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; color:#b9b2a0;}
+  .price-card.featured .price-note{background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.14); color:#cabffc;}
+  .price-note b{color:#6d3fd6;}
+  .price-card.featured .price-note b{color:#a78bfa;}
   .price-btn{width:100%; text-align:center; margin-top:auto;}
-  .price-card.featured .btn-primary{background:var(--gold-bright); border-color:var(--gold-bright); color:var(--black);}
+  .price-card.featured .btn-primary{background:#7c5cff; border-color:#7c5cff; color:var(--white);}
+  .price-card.featured .btn-primary:hover{box-shadow:0 10px 30px rgba(124,92,255,0.35);}
+
 
   /* ---------- ABOUT ---------- */
   section.about{padding:100px 0;}
@@ -579,7 +586,7 @@
   </div>
   <div class="wrap">
     <div class="eyebrow">Marketing Expertise, Not Guesswork</div>
-    <h1 class="hero-title">Social media + <em>Google ads</em> that brings you consultations, not just likes.</h1>
+    <h1 class="hero-title">Social media + <em>Google ads</em> that bring you consultations, not just link clicks.</h1>
     <p class="hero-sub">You bring the practice. We bring the strategy. Google Ads puts you in front of people searching for your service right now, while Facebook &amp; Instagram build recognition over time — both run by proven expertise, not guesswork.</p>
     <div class="hero-actions">
       <a class="btn-primary" href="#book">Open Account</a>
@@ -662,14 +669,14 @@
   <div class="wrap">
     <div class="sec-head" style="text-align:center; max-width:640px; margin-left:auto; margin-right:auto;">
       <div class="eyebrow" style="justify-content:center;">Pricing</div>
-      <h2>One service, built to bring in consultations</h2>
-      <p>Social media ads and Google Ads, run together as one system.</p>
+      <h2>Choose based on your vision &amp; goals</h2>
+      <p>Google Ads for people searching right now, Social Media Ads for building recognition — or combine both for the full system.</p>
     </div>
 
-    <div class="price-grid price-grid-single">
-      <div class="price-card featured">
-        <div class="price-badge">Our Service</div>
-        <div class="price-name">Social Media Ads + Google Ads</div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-name">Google Ads</div>
+        <div class="price-tag">Immediate Consultations</div>
 
         <div class="price-breakdown">
           <div class="breakdown-row">
@@ -677,7 +684,37 @@
             <span class="breakdown-value">$400 / mo</span>
           </div>
           <div class="breakdown-row">
-            <span class="breakdown-label">Ad Budget <span class="breakdown-note">(paid directly to Meta &amp; Google Ads)</span></span>
+            <span class="breakdown-label">Ad Budget <span class="breakdown-note">(paid directly to Google Ads)</span></span>
+            <span class="breakdown-value">$400 / mo</span>
+          </div>
+          <div class="breakdown-total">
+            <span class="breakdown-label">Total Estimated Monthly Commitment</span>
+            <span class="breakdown-value">$800</span>
+          </div>
+        </div>
+
+        <ul class="price-features">
+          <li>Google Ads management — show up when people search for your services</li>
+          <li>Ad copy and landing pages built to convert search intent into calls</li>
+          <li>Targeting and budget tested and refined monthly</li>
+        </ul>
+
+        <div class="price-note">To see real results, this is a <b>12-month commitment</b> — the first 90 days are for testing and setup, with most clients seeing consistent results from month 3 onward.</div>
+
+        <a class="btn-ghost price-btn" href="#book">Open Account</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">Social Media Ads</div>
+        <div class="price-tag">Brand Recognition</div>
+
+        <div class="price-breakdown">
+          <div class="breakdown-row">
+            <span class="breakdown-label">Service Fee <span class="breakdown-note">(paid to agency)</span></span>
+            <span class="breakdown-value">$400 / mo</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="breakdown-label">Ad Budget <span class="breakdown-note">(paid directly to Meta)</span></span>
             <span class="breakdown-value">$400 / mo</span>
           </div>
           <div class="breakdown-total">
@@ -688,7 +725,38 @@
 
         <ul class="price-features">
           <li>Facebook &amp; Instagram ads management, built from the content you're already posting</li>
-          <li>Google Ads management — show up when people search for your services</li>
+          <li>Ad creative designed and tested to build recognition over time</li>
+          <li>Targeting and budget tested and refined monthly</li>
+        </ul>
+
+        <div class="price-note">To see real results, this is a <b>12-month commitment</b> — the first 90 days are for testing and setup, with most clients seeing consistent results from month 3 onward.</div>
+
+        <a class="btn-ghost price-btn" href="#book">Open Account</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Full System</div>
+        <div class="price-name">Google Ads + Social Media Ads</div>
+        <div class="price-tag">Immediate Consultations + Brand Recognition</div>
+
+        <div class="price-breakdown">
+          <div class="breakdown-row">
+            <span class="breakdown-label">Service Fee <span class="breakdown-note">(paid to agency)</span></span>
+            <span class="breakdown-value">$700 / mo</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="breakdown-label">Ad Budget <span class="breakdown-note">(paid directly to Meta &amp; Google Ads)</span></span>
+            <span class="breakdown-value">$800 / mo</span>
+          </div>
+          <div class="breakdown-total">
+            <span class="breakdown-label">Total Estimated Monthly Commitment</span>
+            <span class="breakdown-value">$1,500</span>
+          </div>
+        </div>
+
+        <ul class="price-features">
+          <li>Everything in Google Ads and Social Media Ads, run as one system</li>
+          <li>Google catches active searches, social builds recognition — together</li>
           <li>Ad creative and targeting handled for you, tested and refined monthly</li>
         </ul>
 
@@ -754,7 +822,9 @@
         <div class="form-field">
           <label for="f-package">Service <span class="req">*</span></label>
           <select id="f-package" name="Service" required>
-            <option>Social Media Ads + Google Ads — $800/mo (Service fee $400/mo + $400/mo ad budget)</option>
+            <option>Google Ads — $800/mo (Service fee $400/mo + $400/mo ad budget)</option>
+            <option>Social Media Ads — $800/mo (Service fee $400/mo + $400/mo ad budget)</option>
+            <option>Google Ads + Social Media Ads — $1,500/mo (Service fee $700/mo + $800/mo ad budget)</option>
           </select>
         </div>
       </div>
