@@ -6,23 +6,23 @@
 <title>Temosho Media — Email Newsletter &amp; AI Agent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --white:#ffffff;
-    --paper:#faf8f3;
-    --ink:#15130f;
-    --ink-soft:#5a5548;
-    --ink-faint:#948c78;
-    --gold:#a9781f;
-    --gold-deep:#8a611a;
-    --gold-bright:#c9962e;
-    --line: rgba(21,19,15,0.12);
-    --black:#0b0a08;
-    --cream:#f3eee1;
-    --display: 'Fraunces', serif;
+    --paper:#f4f6f8;
+    --ink:#0f1115;
+    --ink-soft:#4b5563;
+    --ink-faint:#94a3b8;
+    --gold:#0d9488;
+    --gold-deep:#0f766e;
+    --gold-bright:#2dd4bf;
+    --line: rgba(15,17,21,0.1);
+    --black:#0b0f19;
+    --cream:#e5e7eb;
+    --display: 'Space Grotesk', sans-serif;
     --body: 'Inter', sans-serif;
-    --mono: 'IBM Plex Mono', monospace;
+    --mono: 'JetBrains Mono', monospace;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -123,7 +123,7 @@
   .nl-header, .chat-header{display:flex; align-items:center; gap:8px; margin-bottom:9px;}
   .nl-icon, .chat-icon{
     width:26px; height:26px; border-radius:50%; flex:none;
-    background:#6d3fd6; display:flex; align-items:center; justify-content:center;
+    background:#0d9488; display:flex; align-items:center; justify-content:center;
   }
   .nl-icon svg, .chat-icon svg{width:13px; height:13px;}
   .nl-header-text, .chat-header-text{display:flex; flex-direction:column; line-height:1.2;}
@@ -134,14 +134,14 @@
   .nl-snippet{font-family:var(--body); font-size:0.64rem; color:var(--ink-soft); line-height:1.4; margin-bottom:9px;}
   .nl-stats{display:flex; gap:10px; border-top:1px solid var(--line); padding-top:8px;}
   .nl-stats span{font-family:var(--mono); font-size:0.6rem; color:var(--ink-faint);}
-  .nl-stats b{color:#6d3fd6; font-weight:600;}
+  .nl-stats b{color:#0d9488; font-weight:600;}
 
   .chat-bubble{
     font-family:var(--body); font-size:0.66rem; line-height:1.4; padding:6px 10px;
     border-radius:10px; margin-bottom:5px; max-width:90%;
   }
   .chat-bubble.incoming{background:var(--paper); color:var(--ink); border-bottom-left-radius:2px;}
-  .chat-bubble.reply{background:#6d3fd6; color:white; margin-left:auto; border-bottom-right-radius:2px;}
+  .chat-bubble.reply{background:#0d9488; color:white; margin-left:auto; border-bottom-right-radius:2px;}
   .chat-stat{font-family:var(--mono); font-size:0.58rem; color:var(--ink-faint); text-align:right; margin-top:2px;}
 
   .showcase-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:64px;}
@@ -163,6 +163,10 @@
   .showcase-mock .nl-stats span{font-size:0.75rem;}
   .showcase-mock .chat-bubble{font-size:0.85rem; padding:10px 14px;}
   .showcase-mock .chat-stat{font-size:0.72rem;}
+  .showcase-explainer{
+    max-width:360px; margin-top:22px; font-size:0.92rem; line-height:1.6;
+    color:var(--ink-soft); text-align:center;
+  }
   .chip-google .fc-icon{background:#ffffff; border:1px solid var(--line);}
   .chip-google .fc-label{font-family:var(--mono); font-size:0.78rem; letter-spacing:0.02em; color:var(--ink); white-space:nowrap;}
 
@@ -184,7 +188,7 @@
   .social-platform-icon svg{width:10px; height:10px;}
   .social-creative{
     height:56px; border-radius:4px; margin-bottom:7px;
-    background:linear-gradient(135deg, #e3edfd, #fdead4);
+    background:linear-gradient(135deg, #e3edfd, #ccfbf1);
   }
   .social-caption{font-family:var(--body); font-size:0.64rem; color:var(--ink); line-height:1.35; margin-bottom:7px;}
   .social-actions{display:flex; align-items:center; gap:8px; border-top:1px solid var(--line); padding-top:7px;}
@@ -331,7 +335,7 @@
     padding:4px 10px; border-radius:20px; margin-bottom:12px;
   }
   .who-you{background:#e3edfd; color:#1d5fd6;}
-  .who-me{background:#15130f; color:#c9962e;}
+  .who-me{background:#15130f; color:#2dd4bf;}
   .tl-content h3{font-family:var(--display); font-weight:600; font-size:1.2rem; margin:0 0 10px; color:var(--ink);}
   .tl-content p{color:var(--ink-soft); font-size:0.98rem; line-height:1.65; margin:0; max-width:480px;}
 
@@ -344,7 +348,7 @@
   }
   .addon-icon{
     width:48px; height:48px; border-radius:50%; flex:none;
-    background:rgba(124,92,255,0.1); color:#6d3fd6;
+    background:rgba(124,92,255,0.1); color:#0d9488;
     display:flex; align-items:center; justify-content:center;
   }
   .addon-icon svg{width:22px; height:22px;}
@@ -355,11 +359,11 @@
   }
   .addon-tag{
     font-family:var(--mono); font-size:0.64rem; letter-spacing:0.06em; text-transform:uppercase;
-    background:rgba(124,92,255,0.12); color:#6d3fd6; padding:3px 9px; border-radius:20px;
+    background:rgba(124,92,255,0.12); color:#0d9488; padding:3px 9px; border-radius:20px;
   }
   .addon-desc{font-size:0.88rem; color:var(--ink-soft); line-height:1.55; margin:0;}
   .addon-price{flex:none; text-align:right;}
-  .addon-amount{font-family:var(--display); font-weight:600; font-size:1.5rem; color:#6d3fd6;}
+  .addon-amount{font-family:var(--display); font-weight:600; font-size:1.5rem; color:#0d9488;}
   .addon-amount .per{font-family:var(--mono); font-size:0.8rem; color:var(--ink-faint); font-weight:400;}
   .addon-note{display:block; font-family:var(--mono); font-size:0.7rem; color:var(--ink-faint); margin-top:4px;}
   @media(max-width:600px){.addon-card{flex-direction:column; align-items:flex-start;} .addon-price{text-align:left;}}
@@ -375,19 +379,19 @@
   }
   .price-badge{
     position:absolute; top:-13px; right:36px;
-    background:#7c5cff; color:var(--white);
+    background:#14b8a6; color:var(--white);
     font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
     padding:6px 12px;
   }
   .price-name{font-family:var(--display); font-size:1.4rem; font-weight:600; margin-bottom:8px; color:var(--ink);}
   .price-card.featured .price-name{color:var(--white);}
   .price-tag{font-size:0.92rem; color:var(--ink-soft); margin-bottom:28px; line-height:1.5;}
-  .price-card.featured .price-tag{color:#b3aed6;}
+  .price-card.featured .price-tag{color:#5eead4;}
   .price-solution{
     font-size:0.9rem; line-height:1.6; color:var(--ink-soft); margin:0 0 24px;
     padding-bottom:24px; border-bottom:1px solid var(--line);
   }
-  .price-card.featured .price-solution{color:#cabffc; border-bottom-color:rgba(255,255,255,0.14);}
+  .price-card.featured .price-solution{color:#99f6e4; border-bottom-color:rgba(255,255,255,0.14);}
 
   .pricing-model{
     max-width:820px; margin:56px auto 0; padding:44px 40px;
@@ -403,25 +407,25 @@
   }
   .example-inquiries{font-family:var(--body); font-weight:600; font-size:0.92rem; color:var(--ink);}
   .example-value{font-family:var(--mono); font-size:0.78rem; color:var(--ink-faint);}
-  .example-arrow{color:#6d3fd6; font-size:1.1rem; font-weight:600;}
-  .example-price{font-family:var(--display); font-weight:600; font-size:1.4rem; color:#6d3fd6;}
+  .example-arrow{color:#0d9488; font-size:1.1rem; font-weight:600;}
+  .example-price{font-family:var(--display); font-weight:600; font-size:1.4rem; color:#0d9488;}
   .example-price .per{font-family:var(--mono); font-size:0.72rem; color:var(--ink-faint); font-weight:400;}
   .risk-free-badge{
     display:flex; align-items:flex-start; gap:16px;
     background:rgba(124,92,255,0.06); border:1px dashed rgba(124,92,255,0.4);
     padding:20px 24px; border-radius:6px; max-width:640px; margin:0 auto;
   }
-  .risk-free-badge svg{width:26px; height:26px; flex:none; color:#6d3fd6; margin-top:2px;}
+  .risk-free-badge svg{width:26px; height:26px; flex:none; color:#0d9488; margin-top:2px;}
   .risk-free-badge div{font-size:0.9rem; line-height:1.55; color:var(--ink-soft);}
   .risk-free-badge b{color:var(--ink);}
   @media(max-width:600px){.pricing-model{padding:32px 22px;}}
   .price-amount{
     font-family:var(--display); font-weight:600; font-size:2.2rem; margin-bottom:28px; color:var(--ink);
   }
-  .price-card.featured .price-amount{color:#a78bfa;}
+  .price-card.featured .price-amount{color:#2dd4bf;}
   .price-amount .cur{font-size:1.4rem; vertical-align:top; margin-right:2px;}
   .price-amount .per{font-family:var(--mono); font-size:0.9rem; color:var(--ink-faint); font-weight:400; margin-left:4px;}
-  .price-card.featured .price-amount .per{color:#8f87ad;}
+  .price-card.featured .price-amount .per{color:#94a3b8;}
   .price-breakdown{
     border:1px solid var(--line); border-radius:4px; overflow:hidden; margin-bottom:24px;
   }
@@ -433,21 +437,21 @@
   .breakdown-row .breakdown-label{font-family:var(--body); font-size:0.9rem; color:var(--ink);}
   .price-card.featured .breakdown-row .breakdown-label{color:var(--cream);}
   .breakdown-note{font-family:var(--mono); font-size:0.66rem; color:var(--ink-faint); display:block; margin-top:2px;}
-  .price-card.featured .breakdown-note{color:#8f87ad;}
+  .price-card.featured .breakdown-note{color:#94a3b8;}
   .breakdown-row .breakdown-value{font-family:var(--display); font-weight:600; font-size:1.05rem; color:var(--ink); white-space:nowrap;}
   .price-card.featured .breakdown-row .breakdown-value{color:var(--white);}
   .breakdown-total{
     background:rgba(124,92,255,0.08);
   }
   .price-card.featured .breakdown-total{background:rgba(167,139,250,0.12);}
-  .breakdown-total .breakdown-label{font-family:var(--mono); font-size:0.76rem; letter-spacing:0.02em; text-transform:uppercase; color:#5b3fd4;}
-  .price-card.featured .breakdown-total .breakdown-label{color:#cabffc;}
-  .breakdown-total .breakdown-value{font-family:var(--display); font-weight:600; font-size:1.4rem; color:#6d3fd6;}
-  .price-card.featured .breakdown-total .breakdown-value{color:#a78bfa;}
+  .breakdown-total .breakdown-label{font-family:var(--mono); font-size:0.76rem; letter-spacing:0.02em; text-transform:uppercase; color:#0f766e;}
+  .price-card.featured .breakdown-total .breakdown-label{color:#99f6e4;}
+  .breakdown-total .breakdown-value{font-family:var(--display); font-weight:600; font-size:1.4rem; color:#0d9488;}
+  .price-card.featured .breakdown-total .breakdown-value{color:#2dd4bf;}
   .breakdown-caption{
     font-family:var(--mono); font-size:0.7rem; color:var(--ink-faint); padding:10px 16px;
   }
-  .price-card.featured .breakdown-caption{color:#8f87ad;}
+  .price-card.featured .breakdown-caption{color:#94a3b8;}
   .price-features{list-style:none; margin:0 0 28px; padding:0; flex-grow:1;}
   .price-features li{
     font-size:0.92rem; line-height:1.5; padding:12px 0 12px 24px; position:relative;
@@ -455,18 +459,18 @@
   }
   .price-card.featured .price-features li{border-top:1px solid rgba(255,255,255,0.12); color:var(--cream);}
   .price-features li::before{
-    content:"—"; position:absolute; left:0; color:#6d3fd6; font-family:var(--mono);
+    content:"—"; position:absolute; left:0; color:#0d9488; font-family:var(--mono);
   }
-  .price-card.featured .price-features li::before{color:#a78bfa;}
+  .price-card.featured .price-features li::before{color:#2dd4bf;}
   .price-note{
     font-size:0.86rem; line-height:1.6; color:var(--ink-soft); background:var(--paper);
     border:1px solid var(--line); padding:16px 18px; margin-bottom:28px;
   }
-  .price-card.featured .price-note{background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.14); color:#cabffc;}
-  .price-note b{color:#6d3fd6;}
-  .price-card.featured .price-note b{color:#a78bfa;}
+  .price-card.featured .price-note{background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.14); color:#99f6e4;}
+  .price-note b{color:#0d9488;}
+  .price-card.featured .price-note b{color:#2dd4bf;}
   .price-btn{width:100%; text-align:center; margin-top:auto;}
-  .price-card.featured .btn-primary{background:#7c5cff; border-color:#7c5cff; color:var(--white);}
+  .price-card.featured .btn-primary{background:#14b8a6; border-color:#14b8a6; color:var(--white);}
   .price-card.featured .btn-primary:hover{box-shadow:0 10px 30px rgba(124,92,255,0.35);}
 
 
@@ -500,11 +504,11 @@
   }
   .cta-logo{width:170px; height:auto; margin:0 auto 40px; display:block;}
   section.cta h2{color:var(--white); margin-bottom:18px;}
-  section.cta p{color:#a9a290; max-width:460px; margin:0 auto 40px; line-height:1.6;}
+  section.cta p{color:#9ca3af; max-width:460px; margin:0 auto 40px; line-height:1.6;}
   .cta .btn-primary{background:var(--gold-bright); border-color:var(--gold-bright); color:var(--black);}
   .cta .btn-primary:hover{box-shadow:0 10px 30px rgba(201,150,46,0.28);}
 
-  .cta-sub{color:#a9a290; max-width:460px; margin:0 auto 40px; line-height:1.6;}
+  .cta-sub{color:#9ca3af; max-width:460px; margin:0 auto 40px; line-height:1.6;}
   .step-tag{
     font-family:var(--mono); font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;
     color:var(--gold-bright); max-width:620px; margin:0 auto 16px; text-align:left;
@@ -521,7 +525,7 @@
   .form-row .form-field{margin-bottom:0;}
   .form-field label{
     font-family:var(--mono); font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase;
-    color:#b9b2a0; margin-bottom:10px;
+    color:#9ca3af; margin-bottom:10px;
   }
   .booking-form input,
   .booking-form select,
@@ -531,11 +535,11 @@
     padding:14px 16px; border-radius:3px; width:100%; box-sizing:border-box;
   }
   .booking-form select{appearance:none; background-color:rgba(255,255,255,0.06); color-scheme:dark;}
-  .booking-form select option{background:#1a1712; color:var(--white);}
-  .booking-form select optgroup{background:#1a1712; color:var(--gold-bright); font-style:normal; font-weight:600;}
+  .booking-form select option{background:#11151c; color:var(--white);}
+  .booking-form select optgroup{background:#11151c; color:var(--gold-bright); font-style:normal; font-weight:600;}
   .booking-form textarea{resize:vertical; min-height:120px; line-height:1.5;}
   .booking-form input::placeholder,
-  .booking-form textarea::placeholder{color:#7a7464;}
+  .booking-form textarea::placeholder{color:#6b7280;}
   .booking-form input:focus,
   .booking-form select:focus,
   .booking-form textarea:focus{
@@ -544,7 +548,7 @@
   }
   .form-submit{width:100%; margin-top:8px; padding:17px 30px;}
 
-  .label-note{text-transform:none; font-style:normal; color:#7a7464; letter-spacing:0; font-size:0.76rem;}
+  .label-note{text-transform:none; font-style:normal; color:#6b7280; letter-spacing:0; font-size:0.76rem;}
   .category-toggle{display:flex; gap:12px; margin-top:10px; margin-bottom:6px; flex-wrap:wrap;}
   .category-btn{
     font-family:var(--mono); font-size:0.8rem; letter-spacing:0.04em; text-transform:uppercase;
@@ -571,7 +575,7 @@
   }
   .checkbox-other-toggle{
     margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.12);
-    font-family:var(--mono); font-size:0.8rem; letter-spacing:0.02em; text-transform:uppercase; color:#b9b2a0;
+    font-family:var(--mono); font-size:0.8rem; letter-spacing:0.02em; text-transform:uppercase; color:#9ca3af;
   }
   .platform-checks{display:flex; gap:32px; margin-top:6px; flex-wrap:wrap;}
   .addon-checkbox{
@@ -580,7 +584,7 @@
   }
   .addon-checkbox .addon-tag{
     font-family:var(--mono); font-size:0.68rem; letter-spacing:0.04em;
-    background:rgba(167,139,250,0.18); color:#a78bfa; padding:3px 9px; border-radius:20px; margin-left:4px;
+    background:rgba(167,139,250,0.18); color:#2dd4bf; padding:3px 9px; border-radius:20px; margin-left:4px;
   }
   .question-label{
     font-family:var(--body); font-size:1.4rem; font-weight:600; font-style:normal;
@@ -628,8 +632,8 @@
         <span class="nl-meta">Sent to 1,240 contacts</span>
       </div>
     </div>
-    <div class="nl-subject">🦷 3 patient stories, a quick tip &amp; your next visit</div>
-    <div class="nl-snippet">Hope you've been well since your last visit! This month: a smile makeover we're proud of, a tip for sensitive teeth, and an easy way to book your cleaning...</div>
+    <div class="nl-subject">📋 A recent win, a quick tip &amp; how to reach us</div>
+    <div class="nl-snippet">Hope you've been well since we last worked together! This month: a recent win we're proud of, a quick tip that might help, and an easy way to reach out when you're ready...</div>
     <div class="nl-stats">
       <span><b>42%</b> open rate</span>
       <span><b>18%</b> click rate</span>
@@ -693,37 +697,8 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">How it works</div>
-      <h2>Here's exactly what happens, month by month</h2>
-      <p>Two services, two different jobs — no guesswork, no back-and-forth on strategy.</p>
-    </div>
-
-    <div class="timeline">
-      <div class="tl-step">
-        <div class="tl-num">1</div>
-        <div class="tl-content">
-          <span class="tl-who who-you">You</span>
-          <h3>You share your contacts and common questions</h3>
-          <p>Past leads, patients, or clients for your Email Newsletter — and the questions people usually ask, so your AI Agent can answer them accurately from day one.</p>
-        </div>
-      </div>
-
-      <div class="tl-step">
-        <div class="tl-num">2</div>
-        <div class="tl-content">
-          <span class="tl-who who-me">Us</span>
-          <h3>We build and run both services</h3>
-          <p>Nurture sequences, reactivation emails, and a monthly newsletter for your list — plus an AI Agent watching your website, email, WhatsApp, and social channels, trained to answer new inquiries the moment they come in. Handled, tested, and refined every month.</p>
-        </div>
-      </div>
-
-      <div class="tl-step last">
-        <div class="tl-num">3</div>
-        <div class="tl-content">
-          <span class="tl-who who-me">Results</span>
-          <h3>Old contacts come back, new ones don't wait</h3>
-          <p>The Email Newsletter brings old leads back and turns past clients into referrals. The AI Agent means nobody who reaches out ever waits for a reply. That's the whole point.</p>
-        </div>
-      </div>
+      <h2>Two services, two different jobs</h2>
+      <p>No guesswork, no back-and-forth on strategy — here's exactly what each one does.</p>
     </div>
 
     <div class="showcase-grid">
@@ -743,6 +718,7 @@
           <div class="chat-bubble reply">Done — you're booked for 4pm. See you then!</div>
           <div class="chat-stat">Replied in 4 seconds · Booked in under a minute</div>
         </div>
+        <p class="showcase-explainer">You share the questions people usually ask. We train an AI Agent on your practice that watches your website, email, WhatsApp, and social channels — answering new inquiries the moment they come in, so nobody waits for a reply.</p>
       </div>
 
       <div class="showcase-col">
@@ -755,14 +731,15 @@
               <span class="nl-meta">Sent to 1,240 contacts</span>
             </div>
           </div>
-          <div class="nl-subject">🦷 3 patient stories, a quick tip &amp; your next visit</div>
-          <div class="nl-snippet">Hope you've been well since your last visit! This month: a smile makeover we're proud of, a tip for sensitive teeth, and an easy way to book your cleaning...</div>
+          <div class="nl-subject">📋 A recent win, a quick tip &amp; how to reach us</div>
+          <div class="nl-snippet">Hope you've been well since we last worked together! This month: a recent win we're proud of, a quick tip that might help, and an easy way to reach out when you're ready...</div>
           <div class="nl-stats">
             <span><b>42%</b> open rate</span>
             <span><b>18%</b> click rate</span>
             <span><b>9</b> replies booked</span>
           </div>
         </div>
+        <p class="showcase-explainer">You share your past leads, patients, or clients. We build nurture sequences, reactivation emails, and a monthly newsletter that keeps you top-of-mind — so old contacts come back, and past clients turn into referrals.</p>
       </div>
     </div>
   </div>
@@ -879,12 +856,6 @@
         var servicesInterested = document.querySelectorAll('input[name=\'Services Interested\']:checked');
         if(servicesInterested.length===0){ alert('Please select at least one service.'); return false; }
 
-        var services = Array.prototype.map.call(document.querySelectorAll('.service-check:checked'), function(cb){return cb.value;});
-        var otherBox = document.getElementById('f-service-other-check');
-        var otherText = document.getElementById('f-service-other');
-        if(otherBox && otherBox.checked && otherText && otherText.value.trim()){ services.push('Other: ' + otherText.value.trim()); }
-        document.getElementById('f-services-hidden').value = services.join(', ');
-
         return true;
       })();">
       <input type="hidden" name="_subject" value="New consultation request — Temosho Media">
@@ -923,64 +894,13 @@
       </div>
 
       <div class="form-field form-field-full">
-        <label>What kind of service do you offer?</label>
-
-        <div class="category-toggle">
-          <button type="button" class="category-btn" data-category="law" onclick="window.showServiceCategory('law')">Law Firm</button>
-          <button type="button" class="category-btn" data-category="dental" onclick="window.showServiceCategory('dental')">Dental Clinic</button>
-        </div>
-
-        <div class="checkbox-group" id="f-services-law" style="display:none;">
-          <div class="checkbox-col">
-            <div class="checkbox-col-head">Law Firm <span class="label-note">(select all that apply)</span></div>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Personal Injury"> Personal Injury</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Family Law"> Family Law</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Criminal Defense"> Criminal Defense</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Estate Planning"> Estate Planning</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Immigration"> Immigration</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Medical Malpractice"> Medical Malpractice</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Workers' Compensation"> Workers' Compensation</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Business & Corporate Law"> Business &amp; Corporate Law</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Real Estate Law"> Real Estate Law</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="DUI Defense"> DUI Defense</label>
-          </div>
-        </div>
-
-        <div class="checkbox-group" id="f-services-dental" style="display:none;">
-          <div class="checkbox-col">
-            <div class="checkbox-col-head">Dental Clinic <span class="label-note">(select all that apply)</span></div>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="General Dentistry"> General Dentistry</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Cosmetic & Whitening"> Cosmetic &amp; Whitening</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Implants"> Implants</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Orthodontics"> Orthodontics</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Emergency Care"> Emergency Care</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Veneers"> Veneers</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Invisalign"> Invisalign</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Full Mouth Reconstruction"> Full Mouth Reconstruction</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Oral Surgery"> Oral Surgery</label>
-            <label class="checkbox-item"><input type="checkbox" class="service-check" value="Root Canals"> Root Canals</label>
-          </div>
-        </div>
-
-        <label class="checkbox-item checkbox-other-toggle">
-          <input type="checkbox" id="f-service-other-check" onchange="document.getElementById('f-service-other-wrap').style.display = this.checked ? 'flex' : 'none';">
-          Something else
-        </label>
-      </div>
-
-      <div class="form-field form-field-full" id="f-service-other-wrap" style="display:none;">
-        <label for="f-service-other">Please specify</label>
-        <input type="text" id="f-service-other" name="Service (Other)" placeholder="Tell us what your practice offers">
+        <label for="f-service-desc">What service do you offer?</label>
+        <input type="text" id="f-service-desc" name="Service Offered" placeholder="e.g. personal injury law, general dentistry, home renovations">
       </div>
 
       <div class="form-field form-field-full">
-        <label for="f-revenue">What is your current team size, and what does your average monthly order or client volume look like? <span class="req">*</span></label>
-        <input type="text" id="f-revenue" name="Team Size & Monthly Volume" placeholder="e.g. 4 staff, ~20 new clients a month" required>
-      </div>
-
-      <div class="form-field form-field-full">
-        <label for="f-inquiry-value">Roughly how many inquiries do you get by email or WhatsApp each month, and what are they typically worth?</label>
-        <input type="text" id="f-inquiry-value" name="Inquiry Volume & Value" placeholder="e.g. ~15 a month, worth around $150 each">
+        <label for="f-inquiry-value">Roughly how many inquiries do you get by email or WhatsApp each month, and what are they typically worth? <span class="req">*</span></label>
+        <input type="text" id="f-inquiry-value" name="Inquiry Volume & Value" placeholder="e.g. ~15 a month, worth around $150 each" required>
       </div>
 
       <div class="form-row">
@@ -1005,7 +925,6 @@
       </div>
 
       <button type="submit" class="btn-primary form-submit">Send request</button>
-      <input type="hidden" id="f-services-hidden" name="Services">
     </form>
 
   </div>
@@ -1031,15 +950,6 @@
 </footer>
 
 <script>
-  window.showServiceCategory = function(category){
-    document.getElementById('f-services-law').style.display = category === 'law' ? 'grid' : 'none';
-    document.getElementById('f-services-dental').style.display = category === 'dental' ? 'grid' : 'none';
-    var hideId = category === 'law' ? 'f-services-dental' : 'f-services-law';
-    document.querySelectorAll('#' + hideId + ' .service-check').forEach(function(cb){ cb.checked = false; });
-    document.querySelectorAll('.category-btn').forEach(function(btn){
-      btn.classList.toggle('active', btn.getAttribute('data-category') === category);
-    });
-  };
 
 </script>
 </body>
