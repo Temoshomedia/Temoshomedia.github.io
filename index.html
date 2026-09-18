@@ -67,6 +67,32 @@
     background:
       radial-gradient(ellipse 700px 320px at 12% -10%, rgba(169,120,31,0.07), transparent 60%);
   }
+  .mistake-ticker{
+    display:flex; justify-content:center; padding-top:26px; position:relative; z-index:3;
+  }
+  .ticker-track{position:relative; width:340px; height:38px;}
+  .ticker-frame{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:10px;
+    border-radius:30px; border:1px solid var(--line); background:var(--white);
+    font-family:var(--mono); font-size:0.78rem; opacity:0;
+  }
+  .ticker-frame b{font-weight:700;}
+  .frame-miss{color:var(--ink-soft); animation:tickerMiss 6s ease-in-out infinite;}
+  .frame-fix{color:var(--ink); border-color:rgba(13,148,136,0.35); animation:tickerFix 6s ease-in-out infinite;}
+  .ticker-icon{
+    width:18px; height:18px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center;
+    font-size:0.7rem; font-weight:700; line-height:1;
+  }
+  .ticker-miss{background:rgba(239,68,68,0.12); color:#ef4444;}
+  .ticker-fix{background:rgba(13,148,136,0.12); color:#0d9488;}
+  @keyframes tickerMiss{
+    0%,4%{opacity:1;} 42%{opacity:1;} 50%,100%{opacity:0;}
+  }
+  @keyframes tickerFix{
+    0%,46%{opacity:0;} 54%{opacity:1;} 92%{opacity:1;} 100%{opacity:0;}
+  }
+  @media(prefers-reduced-motion: reduce){.frame-miss,.frame-fix{animation:none; opacity:1; position:static; margin-bottom:8px;}}
+  @media(max-width:520px){.ticker-track{width:280px;} .ticker-frame{font-size:0.7rem;}}
   .float-chip{
     position:absolute; display:flex; align-items:center; gap:10px;
     background:var(--white); border:1px solid var(--line);
@@ -143,6 +169,68 @@
   .chat-bubble.incoming{background:var(--paper); color:var(--ink); border-bottom-left-radius:2px;}
   .chat-bubble.reply{background:#0d9488; color:white; margin-left:auto; border-bottom-right-radius:2px;}
   .chat-stat{font-family:var(--mono); font-size:0.58rem; color:var(--ink-faint); text-align:right; margin-top:2px;}
+
+  .phone-mock{display:flex; justify-content:center; padding:38px 20px 0; position:relative; z-index:2;}
+  .phone-frame{
+    position:relative; width:280px; aspect-ratio:9/19.3;
+    background:#0b0f19; border-radius:44px; padding:12px;
+    box-shadow:0 24px 60px rgba(11,15,25,0.35), 0 0 0 2px #1f2733;
+  }
+  .phone-notch{
+    position:absolute; top:12px; left:50%; transform:translateX(-50%);
+    width:90px; height:22px; background:#0b0f19; border-radius:14px; z-index:5;
+  }
+  .phone-screen{
+    position:relative; width:100%; height:100%; background:var(--paper);
+    border-radius:32px; overflow:hidden; display:flex; flex-direction:column;
+  }
+  .phone-statusbar{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 22px 6px; background:var(--black); color:white;
+    font-family:var(--body); font-size:0.72rem; font-weight:600;
+  }
+  .phone-status-icons{display:flex; align-items:center; gap:5px; color:white;}
+  .phone-status-icons svg rect{fill:white;}
+
+  .phone-notification{
+    display:flex; gap:10px; background:rgba(255,255,255,0.97);
+    margin:10px 10px 0; padding:11px 12px; border-radius:14px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.12);
+  }
+  .notif-icon{
+    width:24px; height:24px; border-radius:6px; flex:none; background:#0d9488; color:white;
+    display:flex; align-items:center; justify-content:center; font-size:0.75rem;
+  }
+  .notif-body{flex:1; min-width:0;}
+  .notif-top{display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.58rem; color:var(--ink-faint); margin-bottom:1px;}
+  .notif-title{font-family:var(--body); font-size:0.74rem; font-weight:700; color:var(--ink); margin-bottom:1px;}
+  .notif-text{font-family:var(--body); font-size:0.7rem; color:var(--ink-soft); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+  .phone-chat-head{
+    display:flex; align-items:center; gap:8px; background:#075E54;
+    padding:16px 14px 10px; margin-top:8px;
+  }
+  .chat-head-avatar{
+    width:26px; height:26px; border-radius:50%; background:#25D366; color:white;
+    display:flex; align-items:center; justify-content:center; font-size:0.64rem; font-weight:700; flex:none;
+  }
+  .chat-head-text{display:flex; flex-direction:column; line-height:1.2;}
+  .chat-head-name{font-family:var(--body); font-size:0.76rem; font-weight:600; color:white;}
+  .chat-head-status{font-family:var(--mono); font-size:0.58rem; color:rgba(255,255,255,0.7);}
+
+  .phone-chat-body{
+    flex:1; background:#e5ded6; padding:14px 12px; display:flex; flex-direction:column;
+  }
+  .demo-chat-bubble{
+    font-family:var(--body); font-size:0.72rem; line-height:1.4; padding:7px 11px;
+    border-radius:10px; margin-bottom:6px; max-width:82%;
+  }
+  .demo-chat-bubble.incoming{background:white; color:var(--ink); border-bottom-left-radius:2px;}
+  .demo-chat-bubble.reply{background:#dcf8c6; color:var(--ink); margin-left:auto; border-bottom-right-radius:2px;}
+  .phone-chat-stat{
+    font-family:var(--mono); font-size:0.6rem; color:#0d9488; text-align:center; margin-top:6px;
+  }
+  @media(max-width:520px){.phone-frame{width:230px;}}
 
   .showcase-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:64px;}
   @media(max-width:760px){.showcase-grid{grid-template-columns:1fr;}}
@@ -242,6 +330,27 @@
   .stat span{font-family:var(--mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint);}
 
   /* ---------- VERTICALS (Law / Dental) ---------- */
+  section.demo-strip{padding:60px 0 80px; background:var(--paper); border-bottom:1px solid var(--line); text-align:center;}
+  .demo-strip-label{font-family:var(--mono); font-size:0.72rem; color:var(--ink-faint); letter-spacing:0.04em; margin-bottom:20px;}
+  .demo-card{
+    max-width:560px; margin:0 auto; background:var(--white); border:1px solid var(--line);
+    border-radius:8px; padding:26px 28px; box-shadow:0 14px 30px rgba(15,17,21,0.06); text-align:left;
+  }
+  .demo-row{display:flex; align-items:baseline; gap:12px; margin-bottom:20px; padding-bottom:18px; border-bottom:1px solid var(--line);}
+  .demo-time{font-family:var(--mono); font-size:0.78rem; color:var(--ink-faint); flex:none;}
+  .demo-event{font-family:var(--body); font-size:0.9rem; color:var(--ink); font-weight:500;}
+  .demo-split{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .demo-col{padding:16px; border-radius:6px;}
+  .demo-col-miss{background:rgba(148,163,184,0.1);}
+  .demo-col-catch{background:rgba(13,148,136,0.08);}
+  .demo-col-head{font-family:var(--mono); font-size:0.66rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:10px;}
+  .demo-stat{font-family:var(--display); font-weight:700; font-size:1.8rem; margin-bottom:4px;}
+  .demo-col-miss .demo-stat{color:#94a3b8;}
+  .demo-col-catch .demo-stat{color:#0d9488;}
+  .demo-stat-label{font-size:0.78rem; color:var(--ink-soft); line-height:1.4;}
+  .demo-caption{font-size:0.8rem; color:var(--ink-faint); margin-top:18px; max-width:440px; margin-left:auto; margin-right:auto;}
+  @media(max-width:520px){.demo-split{grid-template-columns:1fr;}}
+
   section.expertise{padding:100px 0; background:var(--white); border-bottom:1px solid var(--line);}
   .split-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:56px;}
   @media(max-width:720px){.split-grid{grid-template-columns:1fr;}}
@@ -340,7 +449,39 @@
   .tl-content p{color:var(--ink-soft); font-size:0.98rem; line-height:1.65; margin:0; max-width:480px;}
 
   /* ---------- PRICING ---------- */
+  section.models{padding:90px 0; border-bottom:1px solid var(--line);}
+  .models-list{max-width:640px; margin:48px auto 0;}
+  .model-row{
+    display:flex; align-items:center; gap:22px; padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .model-row:first-child{border-top:1px solid var(--line);}
+  .model-num{
+    font-family:var(--mono); font-size:0.9rem; color:var(--ink-faint); flex:none; width:32px;
+  }
+  .model-body{flex:1;}
+  .model-name{font-family:var(--display); font-weight:600; font-size:1.15rem; color:var(--ink); margin-bottom:4px;}
+  .model-outcome{font-size:0.88rem; color:var(--ink-soft); margin:0;}
+  .model-link{
+    font-family:var(--mono); font-size:0.78rem; color:#0d9488; white-space:nowrap; text-decoration:none; flex:none;
+  }
+  .model-link:hover{text-decoration:underline;}
+  @media(max-width:520px){.model-row{flex-wrap:wrap; gap:8px 22px;} .model-link{width:100%;}}
+
   section.pricing{padding:110px 0; background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  section.business-picker{padding:80px 0; background:var(--white); border-bottom:1px solid var(--line);}
+  .picker-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:720px; margin:48px auto 0;}
+  @media(max-width:600px){.picker-grid{grid-template-columns:1fr;}}
+  .picker-card{
+    border:1px solid var(--line); border-radius:8px; padding:30px 28px;
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .picker-card:hover{border-color:#0d9488; box-shadow:0 14px 30px rgba(15,17,21,0.06);}
+  .picker-num{font-family:var(--mono); font-size:0.72rem; color:#0d9488; margin-bottom:14px;}
+  .picker-card h3{font-family:var(--display); font-weight:600; font-size:1.2rem; margin:0 0 8px; color:var(--ink);}
+  .picker-card p{font-size:0.88rem; color:var(--ink-soft); margin:0 0 18px; line-height:1.5;}
+  .picker-link{font-family:var(--mono); font-size:0.78rem; color:#0d9488; text-decoration:none; font-weight:600;}
+  .picker-link:hover{text-decoration:underline;}
   .addon-card{
     display:flex; align-items:center; gap:24px; flex-wrap:wrap;
     margin-top:32px; padding:28px 32px; background:var(--white);
@@ -387,6 +528,8 @@
   .price-card.featured .price-name{color:var(--white);}
   .price-tag{font-size:0.92rem; color:var(--ink-soft); margin-bottom:28px; line-height:1.5;}
   .price-card.featured .price-tag{color:#5eead4;}
+  .price-oneliner{font-size:0.86rem; color:var(--ink-soft); margin:0 0 6px; line-height:1.4;}
+  .price-card.featured .price-oneliner{color:#99f6e4;}
   .price-solution{
     font-size:0.9rem; line-height:1.6; color:var(--ink-soft); margin:0 0 24px;
     padding-bottom:24px; border-bottom:1px solid var(--line);
@@ -483,6 +626,16 @@
   .about-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px; align-items:start;}
   @media(max-width:820px){.about-grid{grid-template-columns:1fr; gap:30px;}}
   .about-body p{color:var(--ink-soft); line-height:1.75; font-size:1rem; margin:0 0 20px;}
+
+  section.guarantee-band{
+    padding:90px 0; text-align:center; background:var(--black); border-bottom:1px solid var(--line);
+  }
+  .guarantee-text{
+    font-family:var(--display); font-weight:500; font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.3;
+    color:var(--cream);
+  }
+  .guarantee-text b{color:#2dd4bf; font-weight:700;}
+  .guarantee-sub{color:var(--ink-faint); font-size:0.95rem; margin:16px 0 32px;}
 
   section.mission{
     padding:90px 0; background:var(--black); text-align:center; border-top:1px solid var(--line);
@@ -628,43 +781,90 @@
 </nav>
 
 <header class="hero">
-  <div class="newsletter-mock chip-google">
-    <div class="nl-header">
-      <span class="nl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-      <div class="nl-header-text">
-        <span class="nl-name">Monthly Newsletter</span>
-        <span class="nl-meta">Sent to 1,240 contacts</span>
+  <div class="mistake-ticker">
+    <div class="ticker-track">
+      <div class="ticker-frame frame-miss">
+        <span class="ticker-icon ticker-miss">✕</span>
+        <span class="ticker-text">Inquiry at 9:47pm — no reply for <b>6 hours</b></span>
       </div>
-    </div>
-    <div class="nl-subject">📋 A recent win, a quick tip &amp; how to reach us</div>
-    <div class="nl-snippet">Hope you've been well since we last worked together! This month: a recent win we're proud of, a quick tip that might help, and an easy way to reach out when you're ready...</div>
-    <div class="nl-stats">
-      <span><b>42%</b> open rate</span>
-      <span><b>18%</b> click rate</span>
+      <div class="ticker-frame frame-fix">
+        <span class="ticker-icon ticker-fix">✓</span>
+        <span class="ticker-text">Same inquiry — AI Agent replied in <b>4 seconds</b></span>
+      </div>
     </div>
   </div>
-  <div class="chat-mock chip-google-dental">
-    <div class="chat-header">
-      <span class="chat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
-      <div class="chat-header-text">
-        <span class="nl-name">AI Agent</span>
-        <span class="nl-meta">Website · Email · WhatsApp</span>
+  <div class="phone-mock">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="phone-statusbar">
+          <span>9:41</span>
+          <span class="phone-status-icons">
+            <svg viewBox="0 0 20 12" width="16" height="10"><rect x="0" y="7" width="3" height="5"/><rect x="5" y="4" width="3" height="8"/><rect x="10" y="1" width="3" height="11"/><rect x="15" y="1" width="3" height="11" opacity="0.3"/></svg>
+            <svg viewBox="0 0 24 12" width="22" height="11"><rect x="1" y="1" width="19" height="10" rx="2.5" fill="none" stroke="white" stroke-width="1.2"/><rect x="2.5" y="2.5" width="14" height="7" rx="1.3"/><rect x="21" y="4" width="1.5" height="4" rx="0.5"/></svg>
+          </span>
+        </div>
+
+        <div class="phone-notification">
+          <div class="notif-icon">✉</div>
+          <div class="notif-body">
+            <div class="notif-top"><span class="notif-app">Mail</span><span class="notif-time">now</span></div>
+            <div class="notif-title">New Patient Inquiry</div>
+            <div class="notif-text">"Hi, do you have any openings this week?"</div>
+          </div>
+        </div>
+
+        <div class="phone-chat-head">
+          <span class="chat-head-avatar">AI</span>
+          <div class="chat-head-text">
+            <span class="chat-head-name">AI Agent</span>
+            <span class="chat-head-status">online</span>
+          </div>
+        </div>
+        <div class="phone-chat-body">
+          <div class="demo-chat-bubble incoming">Do you accept walk-ins?</div>
+          <div class="demo-chat-bubble reply">Yes! We have 2pm &amp; 4pm open today 😊</div>
+          <div class="demo-chat-bubble incoming">Perfect, can I book the 4pm?</div>
+          <div class="demo-chat-bubble reply">Done — you're booked for 4pm. See you then!</div>
+          <div class="phone-chat-stat">Replied in 4 seconds</div>
+        </div>
       </div>
     </div>
-    <div class="chat-bubble incoming">Do you accept walk-ins?</div>
-    <div class="chat-bubble reply">Yes! We have 2pm &amp; 4pm open today 😊</div>
-    <div class="chat-stat">Replied in 4 seconds</div>
   </div>
   <div class="wrap">
     <div class="eyebrow">Marketing Expertise, Not Guesswork</div>
-    <h1 class="hero-title">Turn the contacts you already have into <em>consultations</em> — automatically.</h1>
-    <p class="hero-sub">An Email Newsletter keeps past leads, patients, and clients warm until they're ready to come back. An AI Agent watches your website, email, WhatsApp, and social channels — answering new inquiries the moment they come in, any time of day. Two different jobs, both built on the contacts you already have — no ad spend required.</p>
+    <h1 class="hero-title">Use <em>AI Agent</em> to enhance the client &amp; patient experience, and improve efficiency of your day to day operations.</h1>
     <div class="hero-actions">
       <a class="btn-primary" href="#book">Open Account</a>
       <a class="btn-ghost" href="#expertise">See how we work</a>
     </div>
   </div>
 </header>
+
+<section class="demo-strip">
+  <div class="wrap">
+    <div class="demo-strip-label">temoshomedia.com/example</div>
+    <div class="demo-card">
+      <div class="demo-row">
+        <span class="demo-time">9:42 PM</span>
+        <span class="demo-event">New inquiry comes in — "Do you have anything open tomorrow?"</span>
+      </div>
+      <div class="demo-split">
+        <div class="demo-col demo-col-miss">
+          <div class="demo-col-head">Without an AI Agent</div>
+          <div class="demo-stat">14 hrs</div>
+          <div class="demo-stat-label">until someone replies — lead's already gone elsewhere</div>
+        </div>
+        <div class="demo-col demo-col-catch">
+          <div class="demo-col-head">With an AI Agent</div>
+          <div class="demo-stat">4 sec</div>
+          <div class="demo-stat-label">until a reply is sent, booked, and confirmed</div>
+        </div>
+      </div>
+    </div>
+    <p class="demo-caption">An illustrative example — the moment an inquiry comes in is the moment you either catch it or lose it.</p>
+  </div>
+</section>
 
 <section class="expertise" id="expertise">
   <div class="wrap">
@@ -749,87 +949,108 @@
   </div>
 </section>
 
-<section class="pricing" id="pricing">
+<section class="business-picker">
   <div class="wrap">
-    <div class="sec-head" style="text-align:center; max-width:640px; margin-left:auto; margin-right:auto;">
-      <div class="eyebrow" style="justify-content:center;">Pricing</div>
-      <h2>Simple pricing, up to a point — then it's about you</h2>
-      <p>Behind the scenes, both services run on tools that cost more to operate the more volume they handle. So there's one flat price for typical volume, and a custom quote once you're past it — matching what it actually costs to handle your traffic, not a one-size-fits-all number.</p>
+    <div class="sec-head" style="text-align:center; max-width:560px; margin-left:auto; margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">See How It Works</div>
+      <h2>Pick your practice</h2>
     </div>
 
-    <div class="price-grid" style="grid-template-columns:1fr 1fr; max-width:820px; margin-left:auto; margin-right:auto;">
-      <div class="price-card">
-        <div class="price-badge">Bring Old Contacts Back</div>
-        <div class="price-name">Email Newsletter</div>
-        <div class="price-tag">Nurture &amp; Reactivation</div>
-
-        <p class="price-solution">The problem: past leads, patients, and clients go cold once they leave your inbox. This solves it — a regular email in front of them keeps your practice top-of-mind, so when they're ready again, they come to you first.</p>
-
-        <div class="tier-table">
-          <div class="tier-row">
-            <span class="tier-label">Up to 1,000 contacts on your list</span>
-            <span class="tier-value">$350<span class="per">/mo</span></span>
-          </div>
-          <div class="tier-row tier-row-quote">
-            <span class="tier-label">More than 1,000 contacts</span>
-            <a href="#book" class="tier-value tier-value-link">Get a Quote</a>
-          </div>
-        </div>
-
-        <ul class="price-features">
-          <li>A nurture sequence built around the contacts you already have</li>
-          <li>Reactivation emails targeting people who've gone quiet</li>
-          <li>A simple monthly newsletter — updates, reminders, referral prompts</li>
-          <li>No ad spend required — this runs entirely on your existing list</li>
-        </ul>
-
-        <a class="btn-ghost price-btn" href="#book">Get Started</a>
+    <div class="picker-grid">
+      <div class="picker-card">
+        <div class="picker-num">01</div>
+        <h3>Law Firms</h3>
+        <p>Get more consultations, retained clients, and referrals</p>
+        <a class="picker-link" href="#pricing">See how it works →</a>
       </div>
-
-      <div class="price-card featured">
-        <div class="price-badge">Never Miss a New Lead</div>
-        <div class="price-name">AI Agent</div>
-        <div class="price-tag">Website, Email &amp; WhatsApp — One Agent</div>
-
-        <p class="price-solution">The problem: someone reaches out after hours — on your website, by email, on WhatsApp, or through social — and doesn't hear back fast enough, so they go to the next practice instead. This solves it — one AI Agent trained on your practice, watching every channel, replying in seconds.</p>
-
-        <div class="tier-table">
-          <div class="tier-row">
-            <span class="tier-label">Up to 50 inquiries a month</span>
-            <span class="tier-value">$350<span class="per">/mo</span></span>
-          </div>
-          <div class="tier-row tier-row-quote">
-            <span class="tier-label">More than 50 inquiries a month</span>
-            <a href="#book" class="tier-value tier-value-link">Get a Quote</a>
-          </div>
-        </div>
-
-        <ul class="price-features">
-          <li>Trained on your services, hours, and common questions</li>
-          <li>Answers instantly across your website chat, email, WhatsApp, and social DMs</li>
-          <li>Remembers the conversation across channels — no repeating themselves</li>
-          <li>Hands off to you the moment a reply needs a human touch</li>
-          <li>No ad spend required — this runs on the inquiries already coming in</li>
-        </ul>
-
-        <a class="btn-primary price-btn" href="#book">Get Started</a>
-      </div>
-    </div>
-
-    <div class="pricing-model">
-      <div class="pricing-model-head">
-        <div class="eyebrow" style="justify-content:center;">Why the price changes at higher volume</div>
-        <h3>More inquiries means more cost on our end too</h3>
-        <p>The AI Agent runs on paid AI infrastructure that's billed by usage — the more conversations it handles, the more it costs to run. The Email Newsletter works the same way with larger contact lists. A flat $350/mo covers typical volume comfortably. If you're already getting a flood of inquiries or have a large list, that's a good problem to have — it just means we work out a quote that fairly covers the extra volume, on your strategy call.</p>
+      <div class="picker-card">
+        <div class="picker-num">02</div>
+        <h3>Dental Clinics</h3>
+        <p>Get more bookings, reactivated patients, and referrals</p>
+        <a class="picker-link" href="#pricing">See how it works →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="mission">
+<section class="models" id="models">
   <div class="wrap">
-    <div class="eyebrow" style="justify-content:center;">Our Mission</div>
-    <p class="mission-text">Build an audience you own, not one you keep renting through paid ads. Every contact you reach today keeps working for you tomorrow — compounding, never resetting.</p>
+    <div class="sec-head" style="text-align:center; max-width:560px; margin-left:auto; margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">See How It Works</div>
+      <h2>Pick your practice.</h2>
+    </div>
+
+    <div class="models-list">
+      <div class="model-row">
+        <span class="model-num">01</span>
+        <div class="model-body">
+          <div class="model-name">Law Firms</div>
+          <p class="model-outcome">Get more consultations, retained cases, referrals</p>
+        </div>
+        <a class="model-link" href="#pricing">Show me how →</a>
+      </div>
+      <div class="model-row">
+        <span class="model-num">02</span>
+        <div class="model-body">
+          <div class="model-name">Dental Clinics</div>
+          <p class="model-outcome">Get more bookings, returning patients, referrals</p>
+        </div>
+        <a class="model-link" href="#pricing">Show me how →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center; max-width:520px; margin-left:auto; margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">Pricing</div>
+      <h2>Simple. As that.</h2>
+    </div>
+
+    <div class="price-grid" style="grid-template-columns:1fr 1fr; max-width:820px; margin-left:auto; margin-right:auto;">
+      <div class="price-card">
+        <div class="price-name">Email Newsletter</div>
+        <div class="price-tag">Up to 1,000 contacts</div>
+        <div class="price-amount">$350<span class="per">/mo</span></div>
+        <div class="price-quote-note"><a href="#book" class="tier-value-link">More than 1,000? Get a quote →</a></div>
+
+        <div class="mini-grid">
+          <div class="mini-item"><span class="mini-icon">↺</span>Reactivation emails</div>
+          <div class="mini-item"><span class="mini-icon">✉</span>Monthly newsletter</div>
+          <div class="mini-item"><span class="mini-icon">$0</span>No ad spend</div>
+        </div>
+
+        <a class="btn-ghost price-btn" href="#book">Get Started</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-name">AI Agent</div>
+        <p class="price-oneliner">Enhance the client &amp; patient experience, and boost day-to-day efficiency</p>
+        <div class="price-tag">Up to 50 inquiries / mo</div>
+        <div class="price-amount">$350<span class="per">/mo</span></div>
+        <div class="price-quote-note"><a href="#book" class="tier-value-link">More than 50? Get a quote →</a></div>
+
+        <div class="mini-grid">
+          <div class="mini-item"><span class="mini-icon">⚡</span>Instant replies</div>
+          <div class="mini-item"><span class="mini-icon">☰</span>Website, email, WhatsApp</div>
+          <div class="mini-item"><span class="mini-icon">$0</span>No ad spend</div>
+        </div>
+
+        <a class="btn-primary price-btn" href="#book">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee-band">
+  <div class="wrap">
+    <div class="guarantee-text">
+      Set up in days.<br>
+      <b>See results by month 3.</b>
+    </div>
+    <p class="guarantee-sub">Everything else scales from there.</p>
+    <a class="btn-primary" href="#book">Book a Demo</a>
   </div>
 </section>
 
