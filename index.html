@@ -409,6 +409,16 @@
   @media(max-width:520px){.demo-split{grid-template-columns:1fr;}}
 
   section.expertise{padding:100px 0; background:var(--white); border-bottom:1px solid var(--line);}
+  .service-expertise{
+    max-width:820px; margin:0 auto; padding:44px 0; border-top:1px solid var(--line);
+  }
+  .service-expertise:first-of-type{margin-top:56px;}
+  .service-expertise-head{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
+  .service-expertise-head h3{font-family:var(--display); font-weight:600; font-size:1.3rem; color:var(--ink); margin:0;}
+  .service-expertise-dot{width:10px; height:10px; border-radius:50%; flex:none;}
+  .dot-agent{background:#0d9488;}
+  .dot-newsletter{background:#0f766e;}
+  .service-expertise .split-grid{margin-top:24px;}
   .split-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:56px;}
   @media(max-width:720px){.split-grid{grid-template-columns:1fr;}}
   .split-col{border:1px solid var(--line); padding:34px 32px;}
@@ -821,6 +831,9 @@
   footer{border-top:1px solid var(--line); padding:40px 0;}
   footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
   footer .fmeta{font-family:var(--mono); font-size:0.74rem; color:var(--ink-faint); letter-spacing:0.04em;}
+  .footer-links{display:flex; gap:24px; font-family:var(--mono); font-size:0.76rem; letter-spacing:0.04em;}
+  .footer-links a{color:var(--ink-soft); text-decoration:none;}
+  .footer-links a:hover{color:#0d9488;}
 </style>
 </head>
 <body>
@@ -985,27 +998,56 @@
     <div class="sec-head" style="text-align:center; max-width:720px; margin-left:auto; margin-right:auto;">
       <div class="eyebrow" style="justify-content:center;">How We Work Together</div>
       <h2>You're hiring expertise, not a pair of hands</h2>
-      <p>You know your practice better than anyone. We know what makes an email list actually get read, and what makes an automated reply actually sound human. That split is what makes this work. We don't just hand you software — it's a fully managed setup and ongoing optimization, which is how we're able to stand behind the outcomes shown across this site.</p>
+      <p>We don't just hand you software — it's a fully managed setup and ongoing optimization, which is how we're able to stand behind the outcomes shown across this site. Here's how that works for each service.</p>
     </div>
 
-    <div class="split-grid">
-      <div class="split-col">
-        <div class="split-col-head">What you bring</div>
-        <ul class="split-list">
-          <li>Your existing contacts — past leads, patients, or clients</li>
-          <li>Your brand voice and what you want to be known for</li>
-          <li>Answers to common questions your AI Agent should know</li>
-          <li>Approval on every email and every AI Agent response style before it goes live</li>
-        </ul>
+    <div class="service-expertise">
+      <div class="service-expertise-head">
+        <span class="service-expertise-dot dot-agent"></span>
+        <h3>AI Agent</h3>
       </div>
-      <div class="split-col">
-        <div class="split-col-head">What we bring</div>
-        <ul class="split-list">
-          <li>A nurture and reactivation sequence built around your list</li>
-          <li>An AI Agent trained on your practice, watching your website, email, WhatsApp &amp; social — ready to answer instantly</li>
-          <li>Ongoing sending, monitoring, and refinement — nothing runs on autopilot</li>
-          <li>Straight answers on what's working and what isn't</li>
-        </ul>
+      <div class="split-grid">
+        <div class="split-col">
+          <div class="split-col-head">What you bring</div>
+          <ul class="split-list">
+            <li>Your brand voice and what you want to be known for</li>
+            <li>Answers to the common questions your AI Agent should know</li>
+            <li>Approval on your AI Agent's response style before it goes live</li>
+          </ul>
+        </div>
+        <div class="split-col">
+          <div class="split-col-head">What we bring</div>
+          <ul class="split-list">
+            <li>An AI Agent trained on your practice, watching your website, email, WhatsApp &amp; social</li>
+            <li>Instant replies to new inquiries — nothing waits on a human to notice it</li>
+            <li>Ongoing monitoring and refinement, so it keeps sounding right</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-expertise">
+      <div class="service-expertise-head">
+        <span class="service-expertise-dot dot-newsletter"></span>
+        <h3>Email Newsletter</h3>
+      </div>
+      <div class="split-grid">
+        <div class="split-col">
+          <div class="split-col-head">What you bring</div>
+          <ul class="split-list">
+            <li>Your existing contacts — past leads, patients, or clients</li>
+            <li>Your brand voice and what you want to be known for</li>
+            <li>Approval on every email before it goes out</li>
+          </ul>
+        </div>
+        <div class="split-col">
+          <div class="split-col-head">What we bring</div>
+          <ul class="split-list">
+            <li>A nurture and reactivation sequence built around your list</li>
+            <li>A simple monthly newsletter, written and sent for you</li>
+            <li>Straight answers on what's working and what isn't</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -1172,22 +1214,14 @@
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="wrap about-grid">
-    <div>
-      <div class="eyebrow">About</div>
-      <h2>Temosho Media</h2>
-    </div>
-    <div class="about-body">
-      <p>A marketing agency built for service businesses that run on consultations. We run two things: an Email Newsletter that brings old contacts back, and an AI Agent that watches your website, email, WhatsApp, and social channels — answering new inquiries the moment they come in. Two different jobs, both built on the contacts you already have.</p>
-      <p>We're hired for our judgment, not just our labor — so every campaign is built and run on what the data says works, with you kept in the loop every step of the way.</p>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="wrap">
     <div class="brand"><span class="brand-box">Temosho</span><em>Media</em></div>
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="#">Services</a>
+      <a href="#">Results</a>
+    </div>
   </div>
 </footer>
 
