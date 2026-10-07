@@ -536,6 +536,26 @@
   @media(max-width:520px){.model-row{flex-wrap:wrap; gap:8px 22px;} .model-link{width:100%;}}
 
   section.pricing{padding:110px 0; background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  section.reply-examples{padding:90px 0; background:var(--paper); border-bottom:1px solid var(--line);}
+  .reply-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; margin-top:48px;}
+  @media(max-width:900px){.reply-grid{grid-template-columns:1fr; max-width:420px; margin-left:auto; margin-right:auto;}}
+  .reply-card{display:flex; flex-direction:column;}
+  .reply-tag{
+    font-family:var(--mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:#0d9488; margin-bottom:12px; text-align:center;
+  }
+  .reply-email{
+    background:var(--white); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    box-shadow:0 8px 20px rgba(21,19,15,0.06);
+  }
+  .reply-email-head{padding:14px 16px; border-bottom:1px solid var(--line); display:flex; flex-direction:column; gap:2px;}
+  .reply-from{font-family:var(--mono); font-size:0.68rem; color:var(--ink-faint);}
+  .reply-subject{font-family:var(--body); font-size:0.82rem; font-weight:600; color:var(--ink);}
+  .reply-body{padding:16px;}
+  .reply-body p{font-size:0.82rem; line-height:1.55; color:var(--ink-soft); margin:0 0 10px;}
+  .reply-body p:last-child{margin-bottom:0;}
+  .reply-body b{color:var(--ink); font-weight:700;}
+
   section.business-picker{padding:80px 0; background:var(--white); border-bottom:1px solid var(--line);}
   .picker-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:720px; margin:48px auto 0;}
   @media(max-width:600px){.picker-grid{grid-template-columns:1fr;}}
@@ -1025,6 +1045,63 @@
           <p class="model-outcome">Get more bookings, returning patients, referrals</p>
         </div>
         <a class="model-link" href="#pricing">Show me how →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reply-examples">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center; max-width:600px; margin-left:auto; margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">See It In Your Inbox</div>
+      <h2>Three ways to set it up — you choose the fit</h2>
+      <p>Every reply is trained to sound like your practice and point people wherever gets them help fastest.</p>
+    </div>
+
+    <div class="reply-grid">
+      <div class="reply-card">
+        <div class="reply-tag">For urgent matters</div>
+        <div class="reply-email">
+          <div class="reply-email-head">
+            <span class="reply-from">AI Agent &lt;reply@yourpractice.com&gt;</span>
+            <span class="reply-subject">Re: New Inquiry</span>
+          </div>
+          <div class="reply-body">
+            <p>Thanks for reaching out!</p>
+            <p>For urgent matters, please call our reception directly on <b>(555) 123-4567</b> — we aim to answer within two rings.</p>
+            <p>For everything else, I've logged your message and someone will follow up within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reply-card">
+        <div class="reply-tag">For faster replies</div>
+        <div class="reply-email">
+          <div class="reply-email-head">
+            <span class="reply-from">AI Agent &lt;reply@yourpractice.com&gt;</span>
+            <span class="reply-subject">Re: New Inquiry</span>
+          </div>
+          <div class="reply-body">
+            <p>Thanks for your email!</p>
+            <p>We're usually quickest on WhatsApp — message us there at <b>(555) 987-6543</b> and you'll hear back within minutes.</p>
+            <p>Otherwise, we'll reply here within one business day.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reply-card">
+        <div class="reply-tag">For self-serve booking</div>
+        <div class="reply-email">
+          <div class="reply-email-head">
+            <span class="reply-from">AI Agent &lt;reply@yourpractice.com&gt;</span>
+            <span class="reply-subject">Re: Consultation Request</span>
+          </div>
+          <div class="reply-body">
+            <p>Thanks for reaching out about a consultation!</p>
+            <p>You can skip the wait and grab a time that works for you here: <b>yourpractice.com/book</b></p>
+            <p>Looking forward to speaking with you.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
