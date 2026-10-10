@@ -556,6 +556,57 @@
   .reply-body p:last-child{margin-bottom:0;}
   .reply-body b{color:var(--ink); font-weight:700;}
 
+  .reply-grid{justify-items:center; gap:36px;}
+  .reply-phone{width:250px;}
+  .reply-single{display:flex; flex-direction:column; align-items:center; gap:22px; margin-top:48px;}
+  .reply-swap{position:relative; flex:1;}
+  .reply-state{
+    position:absolute; inset:0; opacity:0; display:flex; flex-direction:column;
+    animation:replyCycle 9s infinite;
+  }
+  .reply-state-1{animation-delay:0s;}
+  .reply-state-2{animation-delay:3s;}
+  .reply-state-3{animation-delay:6s;}
+  @keyframes replyCycle{
+    0%{opacity:0;} 3%{opacity:1;} 30%{opacity:1;} 34%{opacity:0;} 100%{opacity:0;}
+  }
+  .reply-state-tag{
+    font-family:var(--mono); font-size:0.6rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:#0d9488; background:rgba(13,148,136,0.08); text-align:center; padding:6px 10px;
+  }
+  .reply-dots{display:flex; gap:8px;}
+  .reply-dot{width:8px; height:8px; border-radius:50%; background:var(--line); animation:dotCycle 9s infinite;}
+  .rd1{animation-delay:0s;} .rd2{animation-delay:3s;} .rd3{animation-delay:6s;}
+  @keyframes dotCycle{
+    0%{background:#0d9488;} 32%{background:#0d9488;} 34%{background:rgba(15,17,21,0.15);} 100%{background:rgba(15,17,21,0.15);}
+  }
+  .reply-dot{background:rgba(15,17,21,0.15);}
+  @media(prefers-reduced-motion: reduce){
+    .reply-state, .reply-dot{animation:none;}
+    .reply-state-1{opacity:1;}
+  }
+
+  .reply-phone .phone-screen{background:var(--white);}
+  .mail-thread-nav{padding:8px 14px 6px; border-bottom:1px solid var(--line);}
+  .mail-back{font-family:var(--body); font-size:0.78rem; color:#0d9488; font-weight:500;}
+  .mail-thread{flex:1; overflow:hidden;}
+  .thread-msg{padding:12px 14px; border-bottom:1px solid var(--line);}
+  .thread-out{background:rgba(13,148,136,0.05);}
+  .thread-head{display:flex; align-items:center; gap:8px; margin-bottom:8px;}
+  .thread-avatar{width:24px; height:24px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; font-family:var(--body); font-size:0.58rem; font-weight:700; color:white;}
+  .thread-avatar.in{background:#94a3b8;}
+  .thread-avatar.out{background:#0d9488;}
+  .thread-who{flex:1; min-width:0; line-height:1.2;}
+  .thread-from{font-family:var(--body); font-size:0.72rem; font-weight:600; color:var(--ink);}
+  .thread-to{font-family:var(--body); font-size:0.6rem; color:var(--ink-faint);}
+  .thread-time{font-family:var(--body); font-size:0.6rem; color:var(--ink-faint);}
+  .thread-subject{font-family:var(--body); font-size:0.74rem; font-weight:700; color:var(--ink); margin-bottom:5px;}
+  .thread-body{font-family:var(--body); font-size:0.7rem; line-height:1.45; color:var(--ink-soft);}
+  .thread-body p{margin:0 0 6px;}
+  .thread-body p:last-child{margin-bottom:0;}
+  .thread-body b{color:var(--ink);}
+  .thread-tag{font-family:var(--mono); font-size:0.6rem; color:#0d9488; font-weight:600; margin-top:8px;}
+
   section.business-picker{padding:80px 0; background:var(--white); border-bottom:1px solid var(--line);}
   .picker-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:720px; margin:48px auto 0;}
   @media(max-width:600px){.picker-grid{grid-template-columns:1fr;}}
@@ -1058,51 +1109,97 @@
       <p>Every reply is trained to sound like your practice and point people wherever gets them help fastest.</p>
     </div>
 
-    <div class="reply-grid">
-      <div class="reply-card">
-        <div class="reply-tag">For urgent matters</div>
-        <div class="reply-email">
-          <div class="reply-email-head">
-            <span class="reply-from">AI Agent &lt;reply@yourpractice.com&gt;</span>
-            <span class="reply-subject">Re: New Inquiry</span>
+    <div class="reply-single">
+      <div class="phone-frame reply-phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-statusbar">
+            <span>9:41</span>
+            <span class="phone-status-icons">
+              <svg viewBox="0 0 20 12" width="16" height="10"><rect x="0" y="7" width="3" height="5"/><rect x="5" y="4" width="3" height="8"/><rect x="10" y="1" width="3" height="11"/><rect x="15" y="1" width="3" height="11" opacity="0.3"/></svg>
+              <svg viewBox="0 0 24 12" width="22" height="11"><rect x="1" y="1" width="19" height="10" rx="2.5" fill="none" stroke="white" stroke-width="1.2"/><rect x="2.5" y="2.5" width="14" height="7" rx="1.3"/><rect x="21" y="4" width="1.5" height="4" rx="0.5"/></svg>
+            </span>
           </div>
-          <div class="reply-body">
-            <p>Thanks for reaching out!</p>
-            <p>For urgent matters, please call our reception directly on <b>(555) 123-4567</b> — we aim to answer within two rings.</p>
-            <p>For everything else, I've logged your message and someone will follow up within 24 hours.</p>
+          <div class="reply-swap">
+            <div class="reply-state reply-state-1">
+              <div class="reply-state-tag">For urgent matters</div>
+              <div class="mail-thread-nav"><span class="mail-back">&lsaquo; Inbox</span></div>
+            <div class="mail-thread">
+              <div class="thread-msg">
+                <div class="thread-head">
+                  <span class="thread-avatar in">DM</span>
+                  <div class="thread-who"><div class="thread-from">David M.</div><div class="thread-to">to Your Practice</div></div>
+                  <span class="thread-time">9:47 PM</span>
+                </div>
+                <div class="thread-subject">New Inquiry</div>
+                <div class="thread-body">Hi, I need to speak to someone about an urgent matter. Is anyone available?</div>
+              </div>
+              <div class="thread-msg thread-out">
+                <div class="thread-head">
+                  <span class="thread-avatar out">YP</span>
+                  <div class="thread-who"><div class="thread-from">Your Practice</div><div class="thread-to">to David M.</div></div>
+                  <span class="thread-time">9:47 PM</span>
+                </div>
+                <div class="thread-subject">Re: New Inquiry</div>
+                <div class="thread-body"><p>Thanks for reaching out!</p><p>For urgent matters, please call our reception directly on <b>(555) 123-4567</b> — we aim to answer within two rings.</p><p>Otherwise, we'll follow up within 24 hours.</p></div>
+                <div class="thread-tag">&#8627; Replied in 3 seconds</div>
+              </div>
+            </div>
+            </div>
+            <div class="reply-state reply-state-2">
+              <div class="reply-state-tag">For faster replies</div>
+              <div class="mail-thread-nav"><span class="mail-back">&lsaquo; Inbox</span></div>
+            <div class="mail-thread">
+              <div class="thread-msg">
+                <div class="thread-head">
+                  <span class="thread-avatar in">DM</span>
+                  <div class="thread-who"><div class="thread-from">David M.</div><div class="thread-to">to Your Practice</div></div>
+                  <span class="thread-time">9:47 PM</span>
+                </div>
+                <div class="thread-subject">New Inquiry</div>
+                <div class="thread-body">Hello, do you have any availability this week?</div>
+              </div>
+              <div class="thread-msg thread-out">
+                <div class="thread-head">
+                  <span class="thread-avatar out">YP</span>
+                  <div class="thread-who"><div class="thread-from">Your Practice</div><div class="thread-to">to David M.</div></div>
+                  <span class="thread-time">9:47 PM</span>
+                </div>
+                <div class="thread-subject">Re: New Inquiry</div>
+                <div class="thread-body"><p>Thanks for your email!</p><p>We're quickest on WhatsApp — message us at <b>(555) 987-6543</b> and you'll hear back within minutes.</p></div>
+                <div class="thread-tag">&#8627; Replied in 3 seconds</div>
+              </div>
+            </div>
+            </div>
+            <div class="reply-state reply-state-3">
+              <div class="reply-state-tag">For self-serve booking</div>
+              <div class="mail-thread-nav"><span class="mail-back">&lsaquo; Inbox</span></div>
+            <div class="mail-thread">
+              <div class="thread-msg">
+                <div class="thread-head">
+                  <span class="thread-avatar in">DM</span>
+                  <div class="thread-who"><div class="thread-from">David M.</div><div class="thread-to">to Your Practice</div></div>
+                  <span class="thread-time">9:47 PM</span>
+                </div>
+                <div class="thread-subject">Consultation Request</div>
+                <div class="thread-body">Hi, I'd like to book a consultation. What's the next step?</div>
+              </div>
+              <div class="thread-msg thread-out">
+                <div class="thread-head">
+                  <span class="thread-avatar out">YP</span>
+                  <div class="thread-who"><div class="thread-from">Your Practice</div><div class="thread-to">to David M.</div></div>
+                  <span class="thread-time">9:47 PM</span>
+                </div>
+                <div class="thread-subject">Re: Consultation Request</div>
+                <div class="thread-body"><p>Thanks for reaching out!</p><p>Skip the wait and pick a time that suits you here: <b>yourpractice.com/book</b></p><p>Looking forward to speaking with you.</p></div>
+                <div class="thread-tag">&#8627; Replied in 3 seconds</div>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="reply-card">
-        <div class="reply-tag">For faster replies</div>
-        <div class="reply-email">
-          <div class="reply-email-head">
-            <span class="reply-from">AI Agent &lt;reply@yourpractice.com&gt;</span>
-            <span class="reply-subject">Re: New Inquiry</span>
-          </div>
-          <div class="reply-body">
-            <p>Thanks for your email!</p>
-            <p>We're usually quickest on WhatsApp — message us there at <b>(555) 987-6543</b> and you'll hear back within minutes.</p>
-            <p>Otherwise, we'll reply here within one business day.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="reply-card">
-        <div class="reply-tag">For self-serve booking</div>
-        <div class="reply-email">
-          <div class="reply-email-head">
-            <span class="reply-from">AI Agent &lt;reply@yourpractice.com&gt;</span>
-            <span class="reply-subject">Re: Consultation Request</span>
-          </div>
-          <div class="reply-body">
-            <p>Thanks for reaching out about a consultation!</p>
-            <p>You can skip the wait and grab a time that works for you here: <b>yourpractice.com/book</b></p>
-            <p>Looking forward to speaking with you.</p>
-          </div>
-        </div>
-      </div>
+      <div class="reply-dots"><span class="reply-dot rd1"></span><span class="reply-dot rd2"></span><span class="reply-dot rd3"></span></div>
     </div>
   </div>
 </section>
@@ -1134,10 +1231,10 @@
         <div class="price-tag">System 1</div>
         <div class="price-name">Missed Call → Booked Patient</div>
         <p class="price-oneliner">Answers every missed call in 3 seconds, qualifies the caller, and books them straight into your calendar</p>
-        <div class="price-amount">$5,000<span class="per">/yr</span></div>
+        <div class="price-amount">$2,500<span class="per">/mo</span></div>
 
         <div class="mini-grid">
-          <div class="mini-item"><span class="mini-icon">⚡</span>Up to 600 inquiries / yr</div>
+          <div class="mini-item"><span class="mini-icon">⚡</span>Up to 2,000 resolutions / mo</div>
           <div class="mini-item"><span class="mini-icon">☰</span>Calls, website, WhatsApp</div>
         </div>
 
