@@ -214,20 +214,71 @@
   .phone-screen-swap{position:relative; flex:1;}
   .screen-state{
     position:absolute; inset:0; opacity:0; display:flex; flex-direction:column;
-    animation-duration:8s; animation-iteration-count:infinite; animation-timing-function:ease-in-out;
+    animation-duration:16s; animation-iteration-count:infinite; animation-timing-function:ease-in-out;
   }
-  .screen-whatsapp{animation-name:swapWhatsapp;}
-  .screen-email{animation-name:swapEmail;}
-  @keyframes swapWhatsapp{
-    0%,4%{opacity:1;} 46%{opacity:1;} 54%,100%{opacity:0;}
-  }
-  @keyframes swapEmail{
-    0%,46%{opacity:0;} 54%{opacity:1;} 96%{opacity:1;} 100%{opacity:0;}
+  .screen-whatsapp, .screen-email, .screen-web, .screen-call{animation-name:swapCycle;}
+  .screen-whatsapp{animation-delay:0s;}
+  .screen-email{animation-delay:4s;}
+  .screen-web{animation-delay:8s;}
+  .screen-call{animation-delay:12s;}
+  @keyframes swapCycle{
+    0%{opacity:0;} 2%{opacity:1;} 23%{opacity:1;} 27%{opacity:0;} 100%{opacity:0;}
   }
   @media(prefers-reduced-motion: reduce){
     .screen-state{animation:none; position:static; opacity:1;}
-    .screen-email{display:none;}
+    .screen-email, .screen-web, .screen-call{display:none;}
   }
+
+  /* website chat state */
+  .screen-web{background:#fff;}
+  .web-bar{
+    display:flex; align-items:center; justify-content:center; gap:6px; margin:10px 12px 0; padding:7px 12px;
+    background:var(--paper); border-radius:20px; font-family:var(--body); font-size:0.68rem; color:var(--ink-soft);
+  }
+  .web-page{padding:14px 14px 0;}
+  .web-nav{
+    display:flex; justify-content:space-between; align-items:center; padding-bottom:12px;
+    border-bottom:1px solid var(--line); font-family:var(--display); font-weight:600; font-size:0.8rem; color:var(--ink);
+  }
+  .web-hero{font-family:var(--display); font-weight:700; font-size:1.25rem; line-height:1.2; color:var(--ink); margin:18px 0 12px;}
+  .web-lines span{display:block; height:7px; border-radius:4px; background:var(--line); margin-bottom:7px;}
+  .web-lines span:last-child{width:60%;}
+  .web-chat{
+    margin:auto 12px 14px; background:#fff; border:1px solid var(--line); border-radius:14px;
+    box-shadow:0 8px 24px rgba(15,17,21,0.15); overflow:hidden;
+  }
+  .web-chat-head{
+    display:flex; align-items:center; gap:7px; background:#0d9488; color:#fff;
+    font-family:var(--body); font-weight:600; font-size:0.74rem; padding:10px 12px;
+  }
+  .web-chat-dot{width:7px; height:7px; border-radius:50%; background:#99f6e4;}
+  .web-chat-body{padding:12px; display:flex; flex-direction:column;}
+  .web-bubble{font-family:var(--body); font-size:0.7rem; line-height:1.4; padding:7px 10px; border-radius:10px; margin-bottom:6px; max-width:88%;}
+  .web-bubble.visitor{background:var(--paper); color:var(--ink); border-bottom-left-radius:2px;}
+  .web-bubble.agent{background:#0d9488; color:#fff; margin-left:auto; border-bottom-right-radius:2px;}
+  .web-chat-stat{font-family:var(--mono); font-size:0.58rem; color:#0d9488; text-align:center; margin-top:2px;}
+
+  /* phone call state */
+  .screen-call{background:linear-gradient(180deg,#0b0f19 0%,#12202b 100%); color:#fff; align-items:center; padding:34px 18px 22px;}
+  .call-top{text-align:center;}
+  .call-avatar{
+    width:68px; height:68px; border-radius:50%; background:#0d9488; margin:0 auto 12px;
+    display:flex; align-items:center; justify-content:center; font-family:var(--display); font-weight:600; font-size:1.3rem;
+  }
+  .call-name{font-family:var(--display); font-weight:600; font-size:1.15rem;}
+  .call-status{font-family:var(--mono); font-size:0.62rem; color:#5eead4; margin-top:6px;}
+  .call-transcript{width:100%; margin-top:26px; display:flex; flex-direction:column; gap:10px;}
+  .call-line{font-family:var(--body); font-size:0.72rem; line-height:1.4; padding:9px 12px; border-radius:12px; background:rgba(255,255,255,0.08);}
+  .call-line span{display:block; font-family:var(--mono); font-size:0.56rem; letter-spacing:0.06em; text-transform:uppercase; color:#94a3b8; margin-bottom:3px;}
+  .call-line.agent{background:rgba(45,212,191,0.16);}
+  .call-line.agent span{color:#5eead4;}
+  .call-stat{font-family:var(--mono); font-size:0.6rem; color:#5eead4; margin-top:14px;}
+  .call-actions{display:flex; gap:12px; margin-top:auto;}
+  .call-btn{
+    width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.12);
+    display:flex; align-items:center; justify-content:center; font-size:0.95rem;
+  }
+  .call-btn.end{background:#ef4444;}
   .phone-frame{
     position:relative; width:280px; aspect-ratio:9/19.3;
     background:#0b0f19; border-radius:44px; padding:12px;
@@ -1074,6 +1125,42 @@
               </div>
             </div>
           </div>
+
+          <div class="screen-state screen-web">
+            <div class="web-bar"><span>🔒</span><span>yourpractice.com</span></div>
+            <div class="web-page">
+              <div class="web-nav"><span>Your Practice</span><span>☰</span></div>
+              <div class="web-hero">Book your<br>consultation</div>
+              <div class="web-lines"><span></span><span></span></div>
+            </div>
+            <div class="web-chat">
+              <div class="web-chat-head"><span class="web-chat-dot"></span>Chat with us</div>
+              <div class="web-chat-body">
+                <div class="web-bubble visitor">What are your opening hours?</div>
+                <div class="web-bubble agent">We're open Mon–Fri, 8am–5pm. Want me to help you book a time?</div>
+                <div class="web-chat-stat">Replied in 3 seconds</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="screen-state screen-call">
+            <div class="call-top">
+              <div class="call-avatar">YP</div>
+              <div class="call-name">Your Practice</div>
+              <div class="call-status">AI Agent answering · 00:12</div>
+            </div>
+            <div class="call-transcript">
+              <div class="call-line caller"><span>Caller</span>Hi, do you have any availability this week?</div>
+              <div class="call-line agent"><span>AI Agent</span>Yes — Thursday at 10am or Friday at 2pm. Which suits you?</div>
+            </div>
+            <div class="call-stat">Answered in 3 seconds</div>
+            <div class="call-actions">
+              <span class="call-btn">🎙</span>
+              <span class="call-btn">⌨</span>
+              <span class="call-btn">🔊</span>
+              <span class="call-btn end">✕</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1256,7 +1343,7 @@
         <div class="plan-tag">AI Agent</div>
         <div class="plan-name">Unanswered Inquiry → Booked Consultation</div>
         <div class="plan-price">$2,500<span class="plan-per">/mo</span></div>
-        <div class="plan-cap">Up to 2,000 resolutions every month</div>
+        <div class="plan-cap">Up to 1,000 resolutions every month</div>
         <a class="plan-btn" href="#book">Get Started</a>
       </div>
       <div class="plan-list">
