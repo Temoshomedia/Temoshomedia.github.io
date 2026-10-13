@@ -438,26 +438,37 @@
   .stat span{font-family:var(--mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint);}
 
   /* ---------- VERTICALS (Law / Dental) ---------- */
-  section.demo-strip{padding:60px 0 80px; background:var(--paper); border-bottom:1px solid var(--line); text-align:center;}
-  .demo-strip-label{font-family:var(--mono); font-size:0.72rem; color:var(--ink-faint); letter-spacing:0.04em; margin-bottom:20px;}
-  .demo-card{
-    max-width:560px; margin:0 auto; background:var(--white); border:1px solid var(--line);
-    border-radius:8px; padding:26px 28px; box-shadow:0 14px 30px rgba(15,17,21,0.06); text-align:left;
+  section.day-compare{padding:80px 0; background:var(--paper); border-bottom:1px solid var(--line);}
+  .day-quote{
+    max-width:420px; margin:0 auto 36px; text-align:center; background:var(--white); border:1px solid var(--line);
+    border-radius:18px 18px 18px 4px; padding:16px 22px; font-family:var(--body); font-size:1rem; font-weight:500;
+    color:var(--ink); box-shadow:0 10px 24px rgba(15,17,21,0.06);
   }
-  .demo-row{display:flex; align-items:baseline; gap:12px; margin-bottom:20px; padding-bottom:18px; border-bottom:1px solid var(--line);}
-  .demo-time{font-family:var(--mono); font-size:0.78rem; color:var(--ink-faint); flex:none;}
-  .demo-event{font-family:var(--body); font-size:0.9rem; color:var(--ink); font-weight:500;}
-  .demo-split{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  .demo-col{padding:16px; border-radius:6px;}
-  .demo-col-miss{background:rgba(148,163,184,0.1);}
-  .demo-col-catch{background:rgba(13,148,136,0.08);}
-  .demo-col-head{font-family:var(--mono); font-size:0.66rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:10px;}
-  .demo-stat{font-family:var(--display); font-weight:700; font-size:1.8rem; margin-bottom:4px;}
-  .demo-col-miss .demo-stat{color:#94a3b8;}
-  .demo-col-catch .demo-stat{color:#0d9488;}
-  .demo-stat-label{font-size:0.78rem; color:var(--ink-soft); line-height:1.4;}
-  .demo-caption{font-size:0.8rem; color:var(--ink-faint); margin-top:18px; max-width:440px; margin-left:auto; margin-right:auto;}
-  @media(max-width:520px){.demo-split{grid-template-columns:1fr;}}
+  .day-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:860px; margin:0 auto;}
+  @media(max-width:700px){.day-grid{grid-template-columns:1fr;}}
+  .day-col{padding:28px 26px; border-radius:12px; border:1px solid var(--line); background:var(--white);}
+  .day-col-now{background:rgba(148,163,184,0.1);}
+  .day-col-ai{background:rgba(13,148,136,0.07); border-color:rgba(13,148,136,0.3);}
+  .day-col-head{
+    font-family:var(--mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
+    margin-bottom:22px; color:var(--ink-faint);
+  }
+  .day-col-ai .day-col-head{color:#0d9488;}
+  .day-steps{position:relative; padding-left:20px; border-left:2px solid rgba(148,163,184,0.5);}
+  .day-col-ai .day-steps{border-left-color:rgba(13,148,136,0.5);}
+  .day-step{position:relative; padding-bottom:20px;}
+  .day-step:last-child{padding-bottom:0;}
+  .day-step::before{
+    content:""; position:absolute; left:-27px; top:3px; width:10px; height:10px; border-radius:50%;
+    background:#94a3b8; border:2px solid var(--paper);
+  }
+  .day-col-ai .day-step::before{background:#0d9488;}
+  .day-time{display:block; font-family:var(--mono); font-size:0.68rem; color:var(--ink-faint); margin-bottom:3px;}
+  .day-col-ai .day-time{color:#0d9488;}
+  .day-text{display:block; font-family:var(--body); font-size:0.9rem; line-height:1.45; color:var(--ink);}
+  .day-col-now .day-step:last-child .day-text{color:#64748b; font-weight:600;}
+  .day-col-ai .day-step:last-child .day-text{font-weight:600;}
+  .day-caption{font-size:0.8rem; color:var(--ink-faint); text-align:center; margin:22px 0 0;}
 
   section.expertise{padding:100px 0; background:var(--white); border-bottom:1px solid var(--line);}
   .service-expertise{
@@ -1174,28 +1185,38 @@
   </div>
 </header>
 
-<section class="demo-strip">
+<section class="day-compare">
   <div class="wrap">
-    <div class="demo-strip-label">temoshomedia.com/example</div>
-    <div class="demo-card">
-      <div class="demo-row">
-        <span class="demo-time">9:42 PM</span>
-        <span class="demo-event">New inquiry comes in — "Do you have anything open tomorrow?"</span>
-      </div>
-      <div class="demo-split">
-        <div class="demo-col demo-col-miss">
-          <div class="demo-col-head">Without an AI Agent</div>
-          <div class="demo-stat">14 hrs</div>
-          <div class="demo-stat-label">until someone replies — lead's already gone elsewhere</div>
+    <div class="sec-head" style="text-align:center; max-width:560px; margin-left:auto; margin-right:auto; margin-bottom:36px;">
+      <div class="eyebrow" style="justify-content:center;">Same inquiry, 9:42 PM</div>
+      <h2>Two very different mornings.</h2>
+    </div>
+
+    <div class="day-quote">“Do you have anything open tomorrow?”</div>
+
+    <div class="day-grid">
+      <div class="day-col day-col-now">
+        <div class="day-col-head">Today, without an AI Agent</div>
+        <div class="day-steps">
+          <div class="day-step"><span class="day-time">9:42 PM</span><span class="day-text">The inquiry lands. Nobody's at the desk.</span></div>
+          <div class="day-step"><span class="day-time">11:30 PM</span><span class="day-text">Still unread. They move on to the next practice.</span></div>
+          <div class="day-step"><span class="day-time">Next morning</span><span class="day-text">It's buried under everything new in your inbox.</span></div>
+          <div class="day-step"><span class="day-time">Day 2 or 3</span><span class="day-text">You finally reply. They've already booked elsewhere.</span></div>
         </div>
-        <div class="demo-col demo-col-catch">
-          <div class="demo-col-head">With an AI Agent</div>
-          <div class="demo-stat">4 sec</div>
-          <div class="demo-stat-label">until a reply is sent, booked, and confirmed</div>
+      </div>
+
+      <div class="day-col day-col-ai">
+        <div class="day-col-head">With an AI Agent</div>
+        <div class="day-steps">
+          <div class="day-step"><span class="day-time">9:42 PM</span><span class="day-text">The inquiry lands.</span></div>
+          <div class="day-step"><span class="day-time">Seconds later</span><span class="day-text">Your AI Agent replies and handles the first conversation.</span></div>
+          <div class="day-step"><span class="day-time">9:44 PM</span><span class="day-text">They know what to do next: reception, WhatsApp or your booking link.</span></div>
+          <div class="day-step"><span class="day-time">Next morning</span><span class="day-text">You open your inbox to a conversation already underway.</span></div>
         </div>
       </div>
     </div>
-    <p class="demo-caption">An illustrative example — the moment an inquiry comes in is the moment you either catch it or lose it.</p>
+
+    <p class="day-caption">An illustrative example.</p>
   </div>
 </section>
 
