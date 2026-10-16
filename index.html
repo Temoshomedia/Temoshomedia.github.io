@@ -438,6 +438,12 @@
   .stat span{font-family:var(--mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint);}
 
   /* ---------- VERTICALS (Law / Dental) ---------- */
+  section.vsl{padding:80px 0; text-align:center; background:var(--white); border-bottom:1px solid var(--line);}
+  .vsl-frame{
+    max-width:860px; margin:36px auto 0; aspect-ratio:16/9; border-radius:14px; overflow:hidden;
+    background:#000; box-shadow:0 24px 60px rgba(11,15,25,0.28);
+  }
+  .vsl-frame iframe{width:100%; height:100%; border:0; display:block;}
   section.day-compare{padding:80px 0; background:var(--paper); border-bottom:1px solid var(--line);}
   .day-quote{
     max-width:420px; margin:0 auto 36px; text-align:center; background:var(--white); border:1px solid var(--line);
@@ -1184,6 +1190,18 @@
     </div>
   </div>
 </header>
+
+<section class="vsl" id="watch">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center; max-width:560px; margin-left:auto; margin-right:auto; margin-bottom:0;">
+      <div class="eyebrow" style="justify-content:center;">Watch First</div>
+      <h2>See how it works.</h2>
+    </div>
+    <div class="vsl-frame">
+      <iframe src="https://www.youtube.com/embed/Xl30G_P8ZQs?rel=0" title="Temosho Media — how the AI Agent works" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
 
 <section class="day-compare">
   <div class="wrap">
