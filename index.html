@@ -113,6 +113,53 @@
   .pb-close b{display:block; font-family:var(--display); font-size:1.5rem; line-height:1.25; margin-bottom:10px;}
   .pb-close span{font-size:1.1rem; color:var(--muted);}
 
+
+  /* REPUTATION */
+  section.rep{padding:100px 0; background:var(--ink); color:#f4efe7;}
+  .rep .sec-head p{color:#c9c0b5;}
+  .chain-note{text-align:center; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:#a89f95; margin:-24px 0 24px;}
+  .chain{display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:70px;}
+  @media(max-width:1000px){.chain{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.chain{grid-template-columns:1fr;}}
+  .cs{background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); border-radius:18px; padding:22px 18px; position:relative;}
+  .cs:last-child{background:rgba(255,90,31,0.16); border-color:rgba(255,90,31,0.55);}
+  .cs-t{font-family:var(--mono); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:#ff9b73; margin-bottom:10px;}
+  .cs h3{font-size:1.1rem; line-height:1.2; margin-bottom:8px; color:#fff;}
+  .cs p{margin:0; font-size:0.86rem; color:#c9c0b5;}
+  .rev-label{text-align:center; font-family:var(--display); font-weight:600; font-size:1.6rem; color:#fff; margin:0 0 8px;}
+  .rev-sub{text-align:center; color:#c9c0b5; font-size:0.98rem; margin:0 auto 32px; max-width:560px;}
+  .rev-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media(max-width:960px){.rev-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.rev-grid{grid-template-columns:1fr;}}
+  .rv{background:var(--white); color:var(--ink); border-radius:18px; padding:24px 22px; display:flex; flex-direction:column;}
+  .rv-stars{font-size:1rem; letter-spacing:2px; margin-bottom:12px; color:#d9d4cb;}
+  .rv-stars b{color:#e5362b; font-weight:400;}
+  .rv q{quotes:none; font-size:0.98rem; line-height:1.5; margin-bottom:16px; flex:1;}
+  .rv-by{font-family:var(--mono); font-size:0.64rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted);}
+  .rev-source{text-align:center; font-family:var(--mono); font-size:0.66rem; color:#a89f95; margin:22px auto 0; max-width:640px; line-height:1.6;}
+  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:70px 0 0;}
+  @media(max-width:800px){.stats{grid-template-columns:1fr;}}
+  .st{border-top:2px solid #ff9b73; padding-top:20px;}
+  .st b{display:block; font-family:var(--display); font-weight:700; font-size:clamp(2.6rem,5vw,3.6rem); line-height:1; color:#fff; letter-spacing:-0.03em;}
+  .st span{display:block; margin-top:10px; font-size:0.93rem; color:#c9c0b5; max-width:280px;}
+  .st-src{font-family:var(--mono); font-size:0.66rem; color:#a89f95; margin-top:20px;}
+  .vs{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:70px;}
+  @media(max-width:800px){.vs{grid-template-columns:1fr;}}
+  .vs-col{border-radius:22px; padding:32px 28px;}
+  .vs-col.no{background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14);}
+  .vs-col.yes{background:var(--mint); color:var(--ink);}
+  .vs-h{font-family:var(--mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px;}
+  .no .vs-h{color:#ff9b73;} .yes .vs-h{color:var(--green);}
+  .vs-col ul{list-style:none; margin:0; padding:0;}
+  .vs-col li{position:relative; padding:11px 0 11px 28px; font-size:0.95rem; border-top:1px solid rgba(255,255,255,0.12);}
+  .yes li{border-top-color:rgba(15,76,58,0.2);}
+  .vs-col li::before{position:absolute; left:0; top:11px; font-weight:700;}
+  .no li::before{content:"\2715"; color:#ff9b73;}
+  .yes li::before{content:"\2713"; color:var(--green);}
+  .rep-close{text-align:center; max-width:680px; margin:56px auto 0;}
+  .rep-close b{display:block; font-family:var(--display); font-weight:600; font-size:clamp(1.5rem,3vw,2.1rem); line-height:1.25; color:#fff; margin-bottom:26px;}
+  .rep-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
   /* SOLUTION */
   section.solution{padding:100px 0;}
   .cap-title{text-align:center; font-family:var(--display); font-weight:600; font-size:1.5rem; margin:0 0 28px;}
@@ -396,6 +443,73 @@
     <div class="pb-close">
       <b>Hiring additional employees isn't always the most practical solution.</b>
       <span>What if you could delegate much of that repetitive work instead?</span>
+    </div>
+  </div>
+</section>
+
+<section class="rep on-dark" id="reputation">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The cost of silence</div>
+      <h2 style="color:#fff;">A few missed calls. A few slow emails. Then it goes public.</h2>
+      <p>Customers rarely complain to you. They complain to everyone else.</p>
+    </div>
+
+    <div class="chain-note">How it can unfold · illustrative timeline</div>
+    <div class="chain">
+      <div class="cs"><div class="cs-t">Week 1</div><h3>The call rings out</h3><p>Nobody picks up, or &ldquo;we&rsquo;ll call you back&rdquo; never happens.</p></div>
+      <div class="cs"><div class="cs-t">Week 2</div><h3>The email sits</h3><p>A reply takes days, or never arrives.</p></div>
+      <div class="cs"><div class="cs-t">Week 3</div><h3>The customer moves on</h3><p>They book with whoever answered first.</p></div>
+      <div class="cs"><div class="cs-t">Month 3</div><h3>The review goes public</h3><p>Frustration turns into a 1-star review that stays online.</p></div>
+      <div class="cs"><div class="cs-t">Over time</div><h3>Referrals dry up</h3><p>A referral gets someone to look you up. Your reviews decide whether they call.</p></div>
+    </div>
+
+    <h3 class="rev-label">In their own words</h3>
+    <p class="rev-sub">Real 1-star reviews of law firms and dental clinics. Read what they complain about.</p>
+    <div class="rev-grid">
+        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;They rarely answer calls or emails, and even simple paperwork takes an unreasonable amount of time.&rdquo;</q><div class="rv-by">Client of a law firm · Nov 2025</div></div>
+        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;&hellip;most of the time they don&rsquo;t even bother acknowledging, let alone responding to their clients.&rdquo;</q><div class="rv-by">Client of a law firm · Aug 2026</div></div>
+        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;I will never use their services again and would not recommend them to anyone.&rdquo;</q><div class="rv-by">Client of a law firm · Feb 2026</div></div>
+        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;The email communication was particularly disappointing. &hellip; After these repeated experiences, I decided to change my dental practice.&rdquo;</q><div class="rv-by">Patient of a dental clinic · Sep 2026</div></div>
+        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;I had a very disappointing experience with this dental practice and would not recommend it.&rdquo;</q><div class="rv-by">Patient of a dental clinic · Apr 2026</div></div>
+        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;Very poor communication. No sense of urgency with any matter.&rdquo;</q><div class="rv-by">Client of a law firm · Jul 2026</div></div>
+    </div>
+    <div class="rev-source">Quoted in part from public 1-star reviews on Trustpilot, 2025 to 2026. Reviewer names and business names removed. Shown to illustrate what customers write about communication, not to criticise any business.</div>
+
+    <div class="stats">
+      <div class="st"><b>23%</b><span>of 2,241 audited US companies never responded to a test web enquiry.</span></div>
+      <div class="st"><b>42 hrs</b><span>average response time among the companies that did respond.</span></div>
+      <div class="st"><b>~7&times;</b><span>more likely to qualify a lead when contacted within an hour than an hour later.</span></div>
+    </div>
+    <div class="st-src">Source: Harvard Business Review, &ldquo;The Short Life of Online Sales Leads&rdquo; (2011).</div>
+
+    <div class="vs">
+      <div class="vs-col no">
+        <div class="vs-h">Without automation</div>
+        <ul>
+          <li>Calls ring out during lunch, meetings and after hours</li>
+          <li>Emails wait for whoever has a spare minute</li>
+          <li>Nobody knows what has been missed</li>
+          <li>The customer finds out first, and tells the internet</li>
+        </ul>
+      </div>
+      <div class="vs-col yes">
+        <div class="vs-h">With an AI Customer Support Agent</div>
+        <ul>
+          <li>Every call, email and chat gets an immediate answer from your approved information</li>
+          <li>Customer details are captured every time</li>
+          <li>Your team gets the whole conversation, not a mystery</li>
+          <li>Sensitive issues are handed to a person straight away</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rep-close">
+      <b>It can&rsquo;t fix a late filing or a wrong crown. It fixes the silence.</b>
+      <div class="rep-actions">
+        <a class="btn btn-orange" href="#book">Request a Consultation</a>
+        <a class="btn btn-ink" href="#solution">See how it works</a>
+      </div>
     </div>
   </div>
 </section>
