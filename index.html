@@ -126,16 +126,42 @@
   .cs-t{font-family:var(--mono); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:#ff9b73; margin-bottom:10px;}
   .cs h3{font-size:1.1rem; line-height:1.2; margin-bottom:8px; color:#fff;}
   .cs p{margin:0; font-size:0.86rem; color:#c9c0b5;}
-  .rev-label{text-align:center; font-family:var(--display); font-weight:600; font-size:1.6rem; color:#fff; margin:0 0 8px;}
-  .rev-sub{text-align:center; color:#c9c0b5; font-size:0.98rem; margin:0 auto 32px; max-width:560px;}
-  .rev-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
-  @media(max-width:960px){.rev-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:600px){.rev-grid{grid-template-columns:1fr;}}
-  .rv{background:var(--white); color:var(--ink); border-radius:18px; padding:24px 22px; display:flex; flex-direction:column;}
-  .rv-stars{font-size:1rem; letter-spacing:2px; margin-bottom:12px; color:#d9d4cb;}
-  .rv-stars b{color:#e5362b; font-weight:400;}
-  .rv q{quotes:none; font-size:0.98rem; line-height:1.5; margin-bottom:16px; flex:1;}
-  .rv-by{font-family:var(--mono); font-size:0.64rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted);}
+
+  .rw-head{text-align:center; font-family:var(--display); font-weight:500; font-size:clamp(1.8rem,3.8vw,2.7rem); line-height:1.18; color:#fff; max-width:760px; margin:0 auto 32px; letter-spacing:-0.02em;}
+  .rw-tabs{display:flex; justify-content:center; gap:4px; flex-wrap:wrap; background:#2b2623; border-radius:14px; padding:6px; max-width:640px; margin:0 auto 26px;}
+  .rw-tab{font-family:var(--body); font-size:0.95rem; color:#d9d2c8; background:none; border:none; padding:14px 22px; cursor:pointer; position:relative; border-radius:10px;}
+  .rw-tab:hover{color:#fff;}
+  .rw-tab.active{color:#fff; font-weight:600;}
+  .rw-tab.active::after{content:""; position:absolute; left:16px; right:16px; bottom:5px; height:2px; background:#ff9b73;}
+  .rw-tab small{font-family:var(--mono); font-size:0.7rem; color:#a89f95; margin-left:6px;}
+  .rw-wrap{position:relative;}
+  .rw-track{display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; padding:4px 2px; align-items:flex-start;}
+  .rw-track::-webkit-scrollbar{display:none;}
+  .rw-card{flex:0 0 calc((100% - 36px) / 3); scroll-snap-align:start; background:#332d29; border-radius:14px; padding:26px 24px 22px; display:flex; flex-direction:column;}
+  .rw-card[hidden]{display:none;}
+  @media(max-width:960px){.rw-card{flex-basis:calc((100% - 18px) / 2);}}
+  @media(max-width:600px){.rw-card{flex-basis:88%;}}
+  .rw-top{display:flex; align-items:center; gap:14px; margin-bottom:16px;}
+  .rw-av{width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:1rem; color:#14110f; flex:none;}
+  .rw-name{font-weight:600; color:#fff; font-size:1.05rem;}
+  .rw-when{color:#a89f95; font-size:0.9rem;}
+  .rw-stars{font-size:1.3rem; letter-spacing:3px; color:#6a625c; margin-bottom:12px; line-height:1;}
+  .rw-stars b{color:#ff3b2f; font-weight:400;}
+  .rw-title{font-weight:600; color:#fff; font-size:1rem; margin-bottom:6px;}
+  .rw-text{color:#e8e2d9; font-size:0.97rem; line-height:1.5; display:-webkit-box; -webkit-line-clamp:5; -webkit-box-orient:vertical; overflow:hidden;}
+  .rw-card.open .rw-text{display:block; -webkit-line-clamp:unset; overflow:visible;}
+  .rw-more{background:none; border:none; color:#a89f95; font-family:var(--body); font-size:0.95rem; text-align:left; padding:6px 0 0; cursor:pointer;}
+  .rw-more:hover{color:#fff;}
+  .rw-more[hidden]{display:none;}
+  .rw-src{margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; gap:8px; font-size:0.88rem; color:#a89f95;}
+  .rw-src b{color:#fff; font-weight:600;}
+  .rw-arrow{position:absolute; top:50%; transform:translateY(-50%); width:46px; height:46px; border-radius:50%; background:#14110f; border:1px solid rgba(255,255,255,0.3); color:#fff; font-size:1.5rem; line-height:1; cursor:pointer; z-index:2; box-shadow:0 8px 20px rgba(0,0,0,0.4);}
+  .rw-arrow:hover{background:#2b2623;}
+  .rw-arrow.next{right:-12px;} .rw-arrow.prev{left:-12px;}
+  .rw-arrow[hidden]{display:none;}
+  .rw-btn{display:block; width:max-content; margin:36px auto 0; background:var(--orange); color:var(--ink); font-family:var(--mono); font-weight:500; font-size:0.82rem; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; padding:20px 38px; border-radius:6px; transition:background .15s, transform .15s;}
+  .rw-btn:hover{background:#ff7442; transform:translateY(-2px);}
+
   .rev-source{text-align:center; font-family:var(--mono); font-size:0.66rem; color:#a89f95; margin:22px auto 0; max-width:640px; line-height:1.6;}
   .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:70px 0 0;}
   @media(max-width:800px){.stats{grid-template-columns:1fr;}}
@@ -464,17 +490,69 @@
       <div class="cs"><div class="cs-t">Over time</div><h3>Referrals dry up</h3><p>A referral gets someone to look you up. Your reviews decide whether they call.</p></div>
     </div>
 
-    <h3 class="rev-label">In their own words</h3>
-    <p class="rev-sub">Real 1-star reviews of law firms and dental clinics. Read what they complain about.</p>
-    <div class="rev-grid">
-        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;They rarely answer calls or emails, and even simple paperwork takes an unreasonable amount of time.&rdquo;</q><div class="rv-by">Client of a law firm · Nov 2025</div></div>
-        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;&hellip;most of the time they don&rsquo;t even bother acknowledging, let alone responding to their clients.&rdquo;</q><div class="rv-by">Client of a law firm · Aug 2026</div></div>
-        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;I will never use their services again and would not recommend them to anyone.&rdquo;</q><div class="rv-by">Client of a law firm · Feb 2026</div></div>
-        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;The email communication was particularly disappointing. &hellip; After these repeated experiences, I decided to change my dental practice.&rdquo;</q><div class="rv-by">Patient of a dental clinic · Sep 2026</div></div>
-        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;I had a very disappointing experience with this dental practice and would not recommend it.&rdquo;</q><div class="rv-by">Patient of a dental clinic · Apr 2026</div></div>
-        <div class="rv"><div class="rv-stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;Very poor communication. No sense of urgency with any matter.&rdquo;</q><div class="rv-by">Client of a law firm · Jul 2026</div></div>
+    <h3 class="rw-head">What people say when they experience poor customer support</h3>
+    <div class="rw-tabs" id="rw-tabs" role="tablist">
+      <button class="rw-tab active" type="button" data-f="all" role="tab" aria-selected="true">All reviews <small>7</small></button>
+      <button class="rw-tab" type="button" data-f="law" role="tab" aria-selected="false">Law firms <small>4</small></button>
+      <button class="rw-tab" type="button" data-f="dental" role="tab" aria-selected="false">Dental clinics <small>3</small></button>
     </div>
-    <div class="rev-source">Quoted in part from public 1-star reviews on Trustpilot, 2025 to 2026. Reviewer names and business names removed. Shown to illustrate what customers write about communication, not to criticise any business.</div>
+    <div class="rw-wrap">
+      <button class="rw-arrow prev" type="button" aria-label="Previous reviews" hidden>&#8249;</button>
+      <div class="rw-track" id="rw-track">
+        <article class="rw-card" data-ind="law">
+          <div class="rw-top"><div class="rw-av" style="background:#c8f2d4">KA</div><div><div class="rw-name">Ka</div><div class="rw-when">Aug 2026</div></div></div>
+          <div class="rw-stars" role="img" aria-label="1 out of 5 stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rw-title">Shockingly awful service</div><div class="rw-text">I don&rsquo;t know how it is possible run a company like this ! My conveyancing process was made extremely stressful by this firm, because most of the time they don&rsquo;t even bother acknowledging, let alone responding to their clients. I know I am not an isolated case because I have seen many reviews stating the same. &hellip; Also, when you call the office to speak to your solicitor, they never put you through to them. They are always on lunch break - whatever time you call, and you get told they will ring you back, which obviously does not happen. However, if you are lucky, occasionally, they will ring you back about 2 weeks later and think it&rsquo;s hilarious.</div>
+          <button class="rw-more" type="button">Read more</button>
+          <div class="rw-src"><span>Posted on</span><b>Trustpilot</b></div>
+        </article>
+        <article class="rw-card" data-ind="dental">
+          <div class="rw-top"><div class="rw-av" style="background:#d9f0c8">DW</div><div><div class="rw-name">David W.</div><div class="rw-when">Sep 2026</div></div></div>
+          <div class="rw-stars" role="img" aria-label="1 out of 5 stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rw-text">&hellip; I experienced repeated issues with poor communication, disorganization, and incorrect handling of my records. I reported these issues and even provided screenshots, but they were still not properly resolved. The email communication was particularly disappointing. Replies lacked basic professionalism, courtesy, and respect towards the patient, often reading more like casual text messages. After these repeated experiences, I decided to change my dental practice. I expected a much higher standard of professionalism and patient care.</div>
+          <button class="rw-more" type="button">Read more</button>
+          <div class="rw-src"><span>Posted on</span><b>Trustpilot</b></div>
+        </article>
+        <article class="rw-card" data-ind="law">
+          <div class="rw-top"><div class="rw-av" style="background:#e3dcf7">RS</div><div><div class="rw-name">Remya S.</div><div class="rw-when">Feb 2026</div></div></div>
+          <div class="rw-stars" role="img" aria-label="1 out of 5 stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rw-title">Big mistake.</div><div class="rw-text">&hellip; I have tried contacting them multiple times by phone and email, but no solicitor has responded or provided any proper help. Poor aftercare, no accountability, and extremely frustrating to deal with. I will never use their services again and would not recommend them to anyone.</div>
+          <button class="rw-more" type="button">Read more</button>
+          <div class="rw-src"><span>Posted on</span><b>Trustpilot</b></div>
+        </article>
+        <article class="rw-card" data-ind="dental">
+          <div class="rw-top"><div class="rw-av" style="background:#c8f2d4">AS</div><div><div class="rw-name">Alexandros S.</div><div class="rw-when">Apr 2026</div></div></div>
+          <div class="rw-stars" role="img" aria-label="1 out of 5 stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rw-title">Unacceptable customer service</div><div class="rw-text">I had an appointment last Monday to clean my teeth, but unfortunately it was a disappointing experience. My visit started at 6:25 PM (while it was supposed to start at 6), and by 7:00 PM I was told that the cleaning couldn&rsquo;t be completed and that I would need to come back for another session (for which I will be recharged). The clinic is definitely not customer oriented as after sharing my experience, they didn&rsquo;t try to propose a suitable solution.</div>
+          <button class="rw-more" type="button">Read more</button>
+          <div class="rw-src"><span>Posted on</span><b>Trustpilot</b></div>
+        </article>
+        <article class="rw-card" data-ind="law">
+          <div class="rw-top"><div class="rw-av" style="background:#fde0c8">AJ</div><div><div class="rw-name">Anandhu J.</div><div class="rw-when">Nov 2025</div></div></div>
+          <div class="rw-stars" role="img" aria-label="1 out of 5 stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rw-text">&hellip; Our purchase should have been straightforward, yet the process dragged on for more than five months because of their constant delays and lack of communication. They rarely answer calls or emails, and even simple paperwork takes an unreasonable amount of time.</div>
+          <button class="rw-more" type="button">Read more</button>
+          <div class="rw-src"><span>Posted on</span><b>Trustpilot</b></div>
+        </article>
+        <article class="rw-card" data-ind="dental">
+          <div class="rw-top"><div class="rw-av" style="background:#d6ecc4">PK</div><div><div class="rw-name">P. K.</div><div class="rw-when">Apr 2026</div></div></div>
+          <div class="rw-stars" role="img" aria-label="1 out of 5 stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rw-title">A very disappointing experience and lack of customer service</div><div class="rw-text">I had a very disappointing experience with this dental practice and would not recommend it. &hellip; First, reliability was a consistent issue. On multiple occasions, I had to wait well past my scheduled appointment time, or I was contacted last minute to reschedule because the dentist was unavailable. However, when I was slightly late (while traveling from another city), I was treated rudely and warned about future penalties. This felt like a double standard with no customer service approach.</div>
+          <button class="rw-more" type="button">Read more</button>
+          <div class="rw-src"><span>Posted on</span><b>Trustpilot</b></div>
+        </article>
+        <article class="rw-card" data-ind="law">
+          <div class="rw-top"><div class="rw-av" style="background:#e3dcf7">SM</div><div><div class="rw-name">Simon M.</div><div class="rw-when">Jul 2026</div></div></div>
+          <div class="rw-stars" role="img" aria-label="1 out of 5 stars"><b>&#9733;</b>&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rw-title">No service or customer ethics</div><div class="rw-text">Very poor communication. Very poor at meeting deadlines. No sense of urgency with any matter &hellip;</div>
+          <button class="rw-more" type="button">Read more</button>
+          <div class="rw-src"><span>Posted on</span><b>Trustpilot</b></div>
+        </article>
+      </div>
+      <button class="rw-arrow next" type="button" aria-label="More reviews">&#8250;</button>
+    </div>
+    <a class="rw-btn" href="#solution">See how to stop this &rarr;</a>
+    <div class="rev-source">Quoted in part from public 1-star reviews on Trustpilot, 2025 to 2026. Reviewer names shortened and business names removed; &hellip; marks where text was left out. Shown to illustrate what customers write about poor communication, not to criticise any business.</div>
 
     <div class="stats">
       <div class="st"><b>23%</b><span>of 2,241 audited US companies never responded to a test web enquiry.</span></div>
@@ -836,6 +914,34 @@
   demo.addEventListener('mouseleave', function(){ hover = false; });
   start();
 
+
+  /* reviews widget */
+  (function(){
+    var track=document.getElementById('rw-track'); if(!track) return;
+    var cards=[].slice.call(track.querySelectorAll('.rw-card')), tabs=[].slice.call(document.querySelectorAll('.rw-tab'));
+    var prev=document.querySelector('.rw-arrow.prev'), next=document.querySelector('.rw-arrow.next');
+    function arrows(){
+      var max=track.scrollWidth-track.clientWidth-2;
+      prev.hidden = track.scrollLeft<=2; next.hidden = track.scrollLeft>=max;
+    }
+    function step(){ var c=cards.filter(function(x){return !x.hidden;})[0]; return c ? c.getBoundingClientRect().width+18 : 300; }
+    prev.addEventListener('click',function(){ track.scrollBy({left:-step(),behavior:'smooth'}); });
+    next.addEventListener('click',function(){ track.scrollBy({left:step(),behavior:'smooth'}); });
+    track.addEventListener('scroll',arrows); window.addEventListener('resize',arrows);
+    tabs.forEach(function(t){ t.addEventListener('click',function(){
+      var f=t.getAttribute('data-f');
+      tabs.forEach(function(x){ var on=x===t; x.classList.toggle('active',on); x.setAttribute('aria-selected',on?'true':'false'); });
+      cards.forEach(function(c){ c.hidden = !(f==='all' || c.getAttribute('data-ind')===f); });
+      track.scrollLeft=0; setTimeout(arrows,30);
+    }); });
+    cards.forEach(function(c){
+      var btn=c.querySelector('.rw-more'), txt=c.querySelector('.rw-text');
+      btn.addEventListener('click',function(){ var open=c.classList.toggle('open'); btn.textContent=open?'Show less':'Read more'; });
+      /* hide "Read more" when the text already fits */
+      setTimeout(function(){ if(txt.scrollHeight<=txt.clientHeight+1 && !c.classList.contains('open')) btn.hidden=true; },50);
+    });
+    setTimeout(arrows,60);
+  })();
   var d = document.getElementById('f-date');
   if(d){ d.min = new Date().toISOString().split('T')[0]; }
   if(window.location.search.indexOf('submitted=1') !== -1){
