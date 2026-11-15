@@ -255,6 +255,9 @@
   .v-win{display:flex; align-items:center; gap:8px; background:var(--mint); border:1px solid rgba(15,76,58,0.3); color:var(--green); border-radius:10px; padding:9px 12px; font-weight:600; font-size:0.8rem; line-height:1.2;}
   .v-win i{width:20px; height:20px; border-radius:50%; background:var(--green); color:#fff; font-style:normal; font-size:0.7rem; display:flex; align-items:center; justify-content:center; flex:none;}
   .v-chart{width:70px; height:42px;}
+  .who{display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:10px 12px; margin:-18px 0 48px;}
+  .who-label{font-family:var(--mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-right:6px;}
+  .who-chip{font-family:var(--display); font-weight:600; font-size:1.05rem; border:1.5px solid var(--ink); border-radius:40px; padding:9px 22px;}
   .g-link{text-align:center; margin:0 0 50px; font-family:var(--display); font-weight:600; font-size:1.15rem;}
 
   /* GOOGLE */
@@ -563,25 +566,26 @@
       <h2>How Google brings you customers.</h2>
       <p>From a search to a new customer, in a few clicks.</p>
     </div>
+    <div class="who"><span class="who-label">Who we do this for</span><span class="who-chip">Dental clinics</span><span class="who-chip">Law firms</span></div>
     <div class="gflow">
       <div class="gs">
         <div class="gs-badge">1</div>
         <div class="gs-head">A potential customer searches on Google</div>
         <div class="gs-body"><p>Someone nearby searches for what you offer.</p>
-          <div class="gs-vis"><div class="v-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>your service near me</span></div></div></div>
+          <div class="gs-vis"><div class="v-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>personal injury lawyer near me</span></div></div></div>
       </div>
       <div class="gs">
         <div class="gs-badge">2</div>
         <div class="gs-head">They click your sponsored result</div>
         <div class="gs-body"><p>Your ad appears at the top and they click it.</p>
-          <div class="gs-vis"><div class="v-ad"><span class="v-tag">Sponsored</span><b>Trusted Service Near You</b>Get expert help today. Free quote.<em>www.yourbusiness.com</em>
+          <div class="gs-vis"><div class="v-ad"><span class="v-tag">Sponsored</span><b>Trusted Personal Injury Lawyers</b>Get expert legal help today. Free consultation.<em>www.yourlawfirm.com</em>
             <svg class="v-cursor" viewBox="0 0 24 24"><path d="M4 3l7 17 2.5-7L21 10.5z"/></svg></div></div></div>
       </div>
       <div class="gs">
         <div class="gs-badge">3</div>
         <div class="gs-head">They land on your website</div>
         <div class="gs-body"><p>A clear page that explains what you do.</p>
-          <div class="gs-vis"><div class="v-site"><div class="top"><span>Your Business</span><span>&#9776;</span></div><h4>Your Service</h4><p>Get the support you need.</p><span class="btn-s">Contact us &rarr;</span></div></div></div>
+          <div class="gs-vis"><div class="v-site"><div class="top"><span>Your Law Firm</span><span>&#9776;</span></div><h4>Personal Injury Lawyers</h4><p>Get the legal support you need.</p><span class="btn-s">Contact us &rarr;</span></div></div></div>
       </div>
       <div class="gs">
         <div class="gs-badge">4</div>
