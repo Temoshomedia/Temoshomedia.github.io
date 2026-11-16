@@ -308,6 +308,10 @@
   .checks{display:flex; gap:10px; flex-wrap:wrap;}
   .checks label{display:inline-flex; align-items:center; gap:8px; border:1.5px solid rgba(20,17,15,0.18); border-radius:40px; padding:10px 16px; font-size:0.9rem; cursor:pointer; background:#fff;}
   .checks input{accent-color:var(--green); width:16px; height:16px;}
+  .q-head{font-family:var(--mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--orange-text); margin:8px 0 16px; padding-top:18px; border-top:1px solid var(--line);}
+  .hint{font-size:0.86rem; color:var(--orange-text); margin-top:10px;}
+  .hint[hidden]{display:none;}
+  .checks label:has(input:checked){border-color:var(--green); background:var(--mint);}
   .form-submit{width:100%; margin-top:6px; padding:17px; background:var(--orange); color:var(--ink); border:none; border-radius:40px; font-family:var(--body); font-weight:600; font-size:1rem; cursor:pointer; transition:background .15s;}
   .form-submit:hover{background:#ff7442;}
   .form-success{max-width:680px; margin:0 auto 24px; padding:18px 22px; background:rgba(126,224,176,0.18); border:1px solid #7ee0b0; border-radius:14px; color:#e9f7ef; text-align:center;}
@@ -662,6 +666,41 @@
         <div class="f-field"><label for="f-phone">Phone *</label><input type="tel" id="f-phone" name="Phone" required></div>
         <div class="f-field"><label for="f-biz">Business name *</label><input type="text" id="f-biz" name="Business Name" required></div>
       </div>
+      <div class="q-head">A few quick questions</div>
+      <div class="f-field">
+        <span class="f-label">Are you the owner or managing partner, or can you approve this? *</span>
+        <div class="checks">
+          <label><input type="radio" name="Role / Authority" value="Owner / managing partner" required> I'm the owner / managing partner</label>
+          <label><input type="radio" name="Role / Authority" value="Can approve this"> I can approve this</label>
+          <label><input type="radio" name="Role / Authority" value="Need to ask the owner or partner"> I'd need to ask the owner or partner</label>
+        </div>
+        <div class="hint" id="role-hint" hidden>No problem. Please bring the owner or partner to the call so you can decide together.</div>
+      </div>
+      <div class="f-field">
+        <span class="f-label">Roughly how many new patient or client enquiries do you get each month? *</span>
+        <div class="checks">
+          <label><input type="radio" name="Monthly Enquiries" value="Fewer than 10" required> Fewer than 10</label>
+          <label><input type="radio" name="Monthly Enquiries" value="10 to 30"> 10 to 30</label>
+          <label><input type="radio" name="Monthly Enquiries" value="30 to 100"> 30 to 100</label>
+          <label><input type="radio" name="Monthly Enquiries" value="100 or more"> 100 or more</label>
+        </div>
+      </div>
+      <div class="f-field">
+        <span class="f-label">Where are you losing the most money right now? *</span>
+        <div class="checks">
+          <label><input type="radio" name="Biggest Bottleneck" value="Not enough enquiries" required> Not enough enquiries</label>
+          <label><input type="radio" name="Biggest Bottleneck" value="Calls and messages go unanswered"> Calls and messages go unanswered</label>
+          <label><input type="radio" name="Biggest Bottleneck" value="Front desk / intake overwhelmed"> Front desk / intake is overwhelmed</label>
+        </div>
+      </div>
+      <div class="f-field">
+        <span class="f-label">The AI agent is $300/month plus a $400 one-time setup. If it's the right fit, are you ready to start within 30 days? *</span>
+        <div class="checks">
+          <label><input type="radio" name="Ready To Start Within 30 Days" value="Yes, within 30 days" required> Yes, within 30 days</label>
+          <label><input type="radio" name="Ready To Start Within 30 Days" value="Maybe, I need more information"> Maybe, I need more information</label>
+          <label><input type="radio" name="Ready To Start Within 30 Days" value="Not yet"> Not yet</label>
+        </div>
+      </div>
       <div class="f-field">
         <span class="f-label">Interested in</span>
         <div class="checks">
@@ -759,6 +798,14 @@
     });
     setTimeout(arrows,60);
   })();
+
+  var roleRadios = document.querySelectorAll('input[name="Role / Authority"]'), roleHint = document.getElementById('role-hint');
+  Array.prototype.forEach.call(roleRadios, function(r){
+    r.addEventListener('change', function(){
+      var sel = document.querySelector('input[name="Role / Authority"]:checked');
+      roleHint.hidden = !(sel && sel.value === 'Need to ask the owner or partner');
+    });
+  });
   var d = document.getElementById('f-date');
   if(d){ d.min = new Date().toISOString().split('T')[0]; }
   if(window.location.search.indexOf('submitted=1') !== -1){
