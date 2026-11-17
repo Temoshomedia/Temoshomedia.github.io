@@ -117,11 +117,13 @@
   .ind-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
   @media(max-width:1000px){.ind-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:560px){.ind-grid{grid-template-columns:1fr;}}
-  .ind{background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:26px 22px;}
+  .ind{display:block; color:inherit; text-decoration:none; background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:26px 22px; transition:transform .15s, border-color .15s;}
+  .ind:hover{transform:translateY(-3px); border-color:var(--orange);}
   .ind-ico{width:46px; height:46px; border-radius:12px; background:rgba(15,76,58,0.1); display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
   .ind-ico svg{width:22px; height:22px; stroke:var(--green); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
   .ind h3{font-size:1.15rem; line-height:1.2; margin-bottom:8px;}
   .ind p{margin:0; font-size:0.9rem; color:var(--muted); line-height:1.45;}
+  .ind-cta{text-align:center; margin-top:24px;}
   .ind-foot{text-align:center; margin:30px 0 0; font-family:var(--display); font-weight:600; font-size:1.1rem;}
 
   /* LIVE DEMO */
@@ -368,16 +370,17 @@
       <h2>Built for businesses that live on enquiries.</h2>
     </div>
     <div class="ind-grid">
-      <div class="ind"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M8 21h8"/><path d="M5 7l-3 7a3.5 3.5 0 007 0L5 7zM19 7l-3 7a3.5 3.5 0 007 0l-3-7z"/></svg></div><h3>Law firms</h3><p>Enquiries arrive when the office is closed or busy. The AI answers, takes the details and hands them to your team.</p></div>
-      <div class="ind"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div><h3>Dental &amp; medical clinics</h3><p>Phones ring while your staff are with patients. The AI answers, takes details and notes appointment requests.</p></div>
-      <div class="ind"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M3 20V8l9-5 9 5v12M9 20v-6h6v6"/></svg></div><h3>Hotels &amp; hospitality</h3><p>Guests call and message at all hours. The AI answers common questions and takes booking enquiries.</p></div>
-      <div class="ind"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 004 0V3M7 11v10M17 3c-2 2-2 6 0 8v10"/></svg></div><h3>Restaurants &amp; caf&eacute;s</h3><p>Your team is serving, not on the phone. The AI answers hours and reservation questions.</p></div>
-      <div class="ind"><div class="ind-ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="10" r="1.8"/><circle cx="10" cy="6" r="1.8"/><circle cx="14" cy="6" r="1.8"/><circle cx="18" cy="10" r="1.8"/><path d="M12 12c-3 0-5.5 3-4 5.5 1 1.6 2.5 1.2 4 1.2s3 .4 4-1.2c1.5-2.500-1-5.500-4-5.500z"/></svg></div><h3>Veterinary clinics</h3><p>Pet owners call at all hours. The AI takes details and passes urgent cases to your team.</p></div>
-      <div class="ind"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 005.1-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>Tradespeople &amp; home services</h3><p>You&rsquo;re on the job when leads call. The AI captures the job details and sends you a summary.</p></div>
-      <div class="ind"><div class="ind-ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg></div><h3>Beauty salons &amp; med spas</h3><p>Clients enquire evenings and weekends. The AI answers pricing questions and takes booking requests.</p></div>
-      <div class="ind"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M5 15l1.5-6h11L19 15M3 15h18v4H3zM7 19v2M17 19v2"/></svg></div><h3>Auto service &amp; dealerships</h3><p>Sales and service lines ring at once. The AI answers both and captures what each caller needs.</p></div>
+      <a class="ind" href="industries.html#ind-law"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M8 21h8"/><path d="M5 7l-3 7a3.5 3.5 0 007 0L5 7zM19 7l-3 7a3.5 3.5 0 007 0l-3-7z"/></svg></div><h3>Law firms</h3><p>Enquiries arrive when the office is closed or busy. The AI answers, takes the details and hands them to your team.</p></a>
+      <a class="ind" href="industries.html#ind-dental"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div><h3>Dental &amp; medical clinics</h3><p>Phones ring while your staff are with patients. The AI answers, takes details and notes appointment requests.</p></a>
+      <a class="ind" href="industries.html#ind-hotel"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M3 20V8l9-5 9 5v12M9 20v-6h6v6"/></svg></div><h3>Hotels &amp; hospitality</h3><p>Guests call and message at all hours. The AI answers common questions and takes booking enquiries.</p></a>
+      <a class="ind" href="industries.html#ind-food"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 004 0V3M7 11v10M17 3c-2 2-2 6 0 8v10"/></svg></div><h3>Restaurants &amp; caf&eacute;s</h3><p>Your team is serving, not on the phone. The AI answers hours and reservation questions.</p></a>
+      <a class="ind" href="industries.html#ind-vet"><div class="ind-ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="10" r="1.8"/><circle cx="10" cy="6" r="1.8"/><circle cx="14" cy="6" r="1.8"/><circle cx="18" cy="10" r="1.8"/><path d="M12 12c-3 0-5.5 3-4 5.5 1 1.6 2.5 1.2 4 1.2s3 .4 4-1.2c1.5-2.500-1-5.500-4-5.500z"/></svg></div><h3>Veterinary clinics</h3><p>Pet owners call at all hours. The AI takes details and passes urgent cases to your team.</p></a>
+      <a class="ind" href="industries.html#ind-trade"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 005.1-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>Tradespeople &amp; home services</h3><p>You&rsquo;re on the job when leads call. The AI captures the job details and sends you a summary.</p></a>
+      <a class="ind" href="industries.html#ind-beauty"><div class="ind-ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg></div><h3>Beauty salons &amp; med spas</h3><p>Clients enquire evenings and weekends. The AI answers pricing questions and takes booking requests.</p></a>
+      <a class="ind" href="industries.html#ind-auto"><div class="ind-ico"><svg viewBox="0 0 24 24"><path d="M5 15l1.5-6h11L19 15M3 15h18v4H3zM7 19v2M17 19v2"/></svg></div><h3>Auto service &amp; dealerships</h3><p>Sales and service lines ring at once. The AI answers both and captures what each caller needs.</p></a>
     </div>
     <p class="ind-foot">Any business that takes calls, emails or chats can use it.</p>
+    <div class="ind-cta"><a class="btn btn-ink" href="industries.html">See use cases for every industry &rarr;</a></div>
   </div>
 </section>
 
